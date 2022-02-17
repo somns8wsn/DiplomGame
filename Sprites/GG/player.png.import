@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pocket.png-a61ee07ca63eaa88c49ff112240ad500.stex"
+path="res://.import/player.png-983d3143e55fe880035ad7eb02866c01.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/invent/Pocket.png"
-dest_files=[ "res://.import/Pocket.png-a61ee07ca63eaa88c49ff112240ad500.stex" ]
+source_file="res://all/Sprites/GG/player.png"
+dest_files=[ "res://.import/player.png-983d3143e55fe880035ad7eb02866c01.stex" ]
 
 [params]
 
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
