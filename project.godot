@@ -8,15 +8,29 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+} ]
 _global_script_class_icons={
-
+"GitAPI": ""
 }
 
 [application]
 
 config/name="DiplomGame"
-run/main_scene="res://MainScene.tscn"
+run/main_scene="res://Scenes/Main.tscn"
+
+[autoload]
+
+G="*res://Scripts/global.gd"
+P="*res://Scripts/Pocket.gd"
+
+[gdnative]
+
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [input]
 
