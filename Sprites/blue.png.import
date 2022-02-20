@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pocket.png-e0c10a2e1094016c046e490f58d409e5.stex"
+path="res://.import/blue.png-1332f6347bc1ec73de3e5db0116877d4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://all/Sprites/invent/Pocket.png"
-dest_files=[ "res://.import/Pocket.png-e0c10a2e1094016c046e490f58d409e5.stex" ]
+source_file="res://Sprites/blue.png"
+dest_files=[ "res://.import/blue.png-1332f6347bc1ec73de3e5db0116877d4.stex" ]
 
 [params]
 

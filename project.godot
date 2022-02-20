@@ -26,7 +26,6 @@ run/main_scene="res://Scenes/Main.tscn"
 [autoload]
 
 G="*res://Scripts/global.gd"
-P="*res://Scripts/Pocket.gd"
 
 [gdnative]
 
@@ -34,11 +33,47 @@ singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [input]
 
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
 left_click={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[layer]
+
+physics_engine=false
+layer=false
+
+[layer_names]
+
+2d_render/layer_1="player"
+2d_physics/layer_1="player"
+2d_render/layer_2="static_object"
+2d_physics/layer_2="static_object"
+2d_render/layer_3="ladder"
+2d_physics/layer_3="ladder"
+2d_render/layer_4="grap"
+2d_physics/layer_4="grap"
 
 [rendering]
 
