@@ -100,7 +100,7 @@ position = Vector2( 88.5711, 444.7 )
 scale = Vector2( 7, 7 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 496.933, 466.364 )
+position = Vector2( 290, 418 )
 scale = Vector2( 3, 3 )
 
 [node name="crate" parent="." instance=ExtResource( 4 )]

@@ -10,10 +10,16 @@ func _process(_delta):
 			$Sprite2.position.x = -$Sprite2.position.x
 		if $grap_area.position.x > 0:
 			$grap_area.position.x = -$grap_area.position.x
+		if $KinematicBody2D.position.x > 0:
+			$KinematicBody2D.position.x = -$KinematicBody2D.position.x
+
 		
 	if Input.is_action_pressed("ui_right"):
 		$Sprite2.position.x = abs($Sprite2.position.x)
 		$grap_area.position.x = abs($grap_area.position.x)
+
+		$KinematicBody2D.position.x = abs($KinematicBody2D.position.x)
+
 		
 	if !Input.is_action_just_pressed("ui_right") or !Input.is_action_just_pressed("ui_left") or !Input.is_action_pressed("ui_left") or !Input.is_action_pressed("ui_right"):
 		vel.x = 0
@@ -52,6 +58,12 @@ func ladder():
 			vel.x += 5
 			
 		if $grap_area.position.x > 0:
+			vel.x -= 5
+			
+		if $KinematicBody2D.position.x < 0:
+			vel.x += 5
+			
+		if $KinematicBody2D.position.x > 0:
 			vel.x -= 5
 			
 		print(G.is_on_ladder)
