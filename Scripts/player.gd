@@ -60,7 +60,6 @@ func ladder():
 		
 func _physics_process(delta):
 
-	
 	vel.y += mass * delta + 25
 	movement_right(MAX_SPEED)
 	movement_left(MAX_SPEED)
