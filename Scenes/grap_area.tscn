@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="grap_area" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 6
+
+[node name="grap_collider" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
