@@ -8,14 +8,13 @@ func _process(_delta):
 	if Input.is_action_pressed("ui_left"):
 		if $Sprite2.position.x > 0:
 			$Sprite2.position.x = -$Sprite2.position.x
-			
-		if $ladder_grap.position.x > 0:
-			$ladder_grap.position.x = -$ladder_grap.position.x
+		if $grap_area.position.x > 0:
+			$grap_area.position.x = -$grap_area.position.x
 		
 	if Input.is_action_pressed("ui_right"):
 		$Sprite2.position.x = abs($Sprite2.position.x)
-		$ladder_grap.position.x = abs($ladder_grap.position.x)
-
+		$grap_area.position.x = abs($grap_area.position.x)
+		
 	if !Input.is_action_just_pressed("ui_right") or !Input.is_action_just_pressed("ui_left") or !Input.is_action_pressed("ui_left") or !Input.is_action_pressed("ui_right"):
 		vel.x = 0
 		
@@ -39,7 +38,26 @@ func movement_left(MAX_SPEED):
 			
 			vel.x = 0
 
-
+func ladder():
+	if G.is_on_ladder == true:
+		vel.y = 0
+		
+		if Input.is_action_pressed("ui_up"):
+			vel.y -= 100
+			
+		elif Input.is_action_pressed("ui_down"):
+			vel.y += 100
+			
+		if $grap_area.position.x < 0:
+			vel.x += 5
+			
+		if $grap_area.position.x > 0:
+			vel.x -= 5
+			
+		print(G.is_on_ladder)
+	else:
+		print(G.is_on_ladder)
+		
 func _physics_process(delta):
 
 	
@@ -47,13 +65,7 @@ func _physics_process(delta):
 	movement_right(MAX_SPEED)
 	movement_left(MAX_SPEED)
 	
-	if G.is_on_ladder == true:
-		if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_up"):
-			pass
-		vel.x += 5
-		print(G.is_on_ladder)
-	else:
-		print(G.is_on_ladder)
+	ladder()
 		
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_right"):
 		vel.x = 0

@@ -1,15 +1,11 @@
 extends StaticBody2D
 
 
-
-
-
-func on_touch_area_player_grap_entered(body):
-	if body.name == "player":
+func _on_touch_grap_area_body_entered(body):
+	if body.name == "grap_area":
 		G.is_on_ladder = true
-	
 
 
-func _on_touch_area_player_grap_exited(body):
-	if body.name == "player":
+func _on_touch_grap_area_body_exited(body):
+	if body.name == "grap_area":
 		G.is_on_ladder = false
