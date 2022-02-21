@@ -29,6 +29,5 @@ shape = SubResource( 1 )
 [node name="grap_area" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 0.0417137 )
 scale = Vector2( 0.00600586, 0.0732096 )
-
 [node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
 position = Vector2( 29, -2 )

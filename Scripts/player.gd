@@ -12,11 +12,14 @@ func _process(_delta):
 			$grap_area.position.x = -$grap_area.position.x
 		if $KinematicBody2D.position.x > 0:
 			$KinematicBody2D.position.x = -$KinematicBody2D.position.x
+
 		
 	if Input.is_action_pressed("ui_right"):
 		$Sprite2.position.x = abs($Sprite2.position.x)
 		$grap_area.position.x = abs($grap_area.position.x)
+
 		$KinematicBody2D.position.x = abs($KinematicBody2D.position.x)
+
 		
 	if !Input.is_action_just_pressed("ui_right") or !Input.is_action_just_pressed("ui_left") or !Input.is_action_pressed("ui_left") or !Input.is_action_pressed("ui_right"):
 		vel.x = 0
