@@ -130,4 +130,5 @@ scale = Vector2( 0.7, 0.7 )
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 272, 490.308 )
 scale = Vector2( 3, 3 )
+
 [connection signal="_on_player_sat" from="wooden_chair" to="player" method="_on_wooden_chair_player_sat"]
