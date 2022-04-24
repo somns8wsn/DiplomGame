@@ -92,7 +92,7 @@ func ladder() -> void:
 	if G.is_on_ladder:
 		state = State.CLIMBING
 		vel.y = 0
-		
+
 
 		if input.up():
 			vel.y -= 100
