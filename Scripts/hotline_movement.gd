@@ -1,6 +1,10 @@
-extends KinematicBody2D
+extends Node
 
-class_name Player
+class_name hotline_movement
+
+onready var pl = get_node("Player")
+
+
 
 var mass := 1000.0
 var vel := Vector2()
@@ -109,7 +113,7 @@ func duck() -> void:
 
 	var is_ceiling_above : bool = $ceiling_check.is_colliding()
 
-	if input.down() and is_on_floor():
+	if input.down() and Player.KinematicBody2D.is_on_floor():
 		state = State.DUCK
 		$idle_collision.disabled = true
 
@@ -123,7 +127,7 @@ func duck() -> void:
 
 func jump() -> void:
 	if state == State.IDLE:
-		if input.jump() and is_on_floor():
+		if input.jump() and Player.KinematicBody2D.is_on_floor():
 			state = State.JUMP
 			vel.y -= mass - 200
 		elif vel.y == 0:
@@ -134,7 +138,7 @@ func movement_limitations() -> void: # to except possible bugs
 	if input.left() and input.right():
 		vel.x = 0
 
-	if !input.just_right() and !input.just_left() and !input.left() and !input.right() and is_on_floor():
+	if !input.just_right() and !input.just_left() and !input.left() and !input.right() and Player.KinematicBody2D.is_on_floor():
 		vel.x = 0
 
 func _process(_delta: float) -> void:
@@ -192,7 +196,7 @@ func _physics_process(delta: float) -> void:
 	jump()
 	movement_limitations()
 
-	vel = move_and_slide(vel, Vector2.UP)
+	vel = Player.KinematicBody2D.move_and_slide(vel, Vector2.UP)
 
 func _on_wooden_chair_player_sat() -> void:
 	print("work")
