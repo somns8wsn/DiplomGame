@@ -1,12 +1,10 @@
 extends KinematicBody2D
 
-class_name Player
-
 var mass := 1000.0
-var vel := Vector2()
+var vel := Vector2.ZERO
 
-const MAX_SPEED = 300
-const SPRINT_SPEED = MAX_SPEED*1.5
+const WALK_SPEED = 300
+const SPRINT_SPEED = WALK_SPEED*1.5
 
 enum State{ # all possible player states
 	IDLE,
@@ -63,31 +61,71 @@ class input:
 #####################################
 
 
-func movement(MAX_SPEED: float, _delta: float) -> void:
+func movement(WALK_SPEED: float, _delta: float) -> void:
 
 	if input.right():
 		state = State.RUN
-		vel.x = MAX_SPEED
+		vel.x = WALK_SPEED
 		if input.sprint():
 			state = State.SPRINT
 			vel.x = SPRINT_SPEED
 			if input.stop_sprinting():
-				vel.x = MAX_SPEED
+				vel.x = WALK_SPEED
 
 	elif input.left():
 		state = State.RUN
-		vel.x = -MAX_SPEED
+		vel.x = -WALK_SPEED
 		if input.sprint():
 			state = State.SPRINT
 			vel.x = -SPRINT_SPEED
 			if input.stop_sprinting():
-				vel.x = -MAX_SPEED
+				vel.x = -WALK_SPEED
 
 	else:
 		if input.just_right_release() or input.just_left_release():
 			vel.x = 0
 			state = State.IDLE
 
+func hotline_movement(WALK_SPEED: float, _delta: float) -> void:
+
+	var speed = WALK_SPEED
+
+	if input.right():
+		state = State.RUN
+		vel.x = speed
+		if input.up():
+			vel.y = -speed/2
+		elif input.down():
+			vel.y = speed/2
+
+	elif input.left():
+		state = State.RUN
+		vel.x = -speed
+		if input.up():
+			vel.y = -speed/2
+		elif input.down():
+			vel.y = speed/2
+
+	elif input.up():
+		state = State.RUN
+		vel.y = -speed
+		if input.left():
+			vel.x = -speed/2
+		elif input.right():
+			vel.x = speed/2
+
+	elif input.down():
+		state = State.RUN
+		vel.y = speed
+		if input.left():
+			vel.x = -speed/2
+		elif input.right():
+			vel.x = speed/2
+
+	else:
+		state = State.IDLE
+		vel.x = 0
+		vel.y = 0
 
 func ladder() -> void:
 
@@ -133,9 +171,12 @@ func movement_limitations() -> void: # to except possible bugs
 
 	if input.left() and input.right():
 		vel.x = 0
+		if G.is_indoor:
+			vel.y = 0
 
 	if !input.just_right() and !input.just_left() and !input.left() and !input.right() and is_on_floor():
 		vel.x = 0
+
 
 func _process(_delta: float) -> void:
 
@@ -179,20 +220,25 @@ func _process(_delta: float) -> void:
 
 		if ceiling_check.rotation_degrees > 0:
 			ceiling_check.rotation_degrees = -ceiling_check.rotation_degrees
-			
-	
+
 
 func _physics_process(delta: float) -> void:
+	if G.is_indoor:
+		hotline_movement(WALK_SPEED, delta)
+		movement_limitations()
+		vel = move_and_slide(vel, Vector2.ZERO, false)
+		if vel.length() > 0:
+			vel = vel.normalized() * WALK_SPEED
+	else:
+		vel.y += mass * delta + 25
+		#print(state)
+		movement(WALK_SPEED, delta)
+		ladder()
+		duck()
+		jump()
+		movement_limitations()
 
-	vel.y += mass * delta + 25
-	#print(state)
-	movement(MAX_SPEED, delta)
-	ladder()
-	duck()
-	jump()
-	movement_limitations()
+		vel = move_and_slide(vel, Vector2.UP)
 
-	vel = move_and_slide(vel, Vector2.UP)
-
-func _on_wooden_chair_player_sat() -> void:
-	print("work")
+#func _on_wooden_chair_player_sat() -> void:
+#	print("work")
