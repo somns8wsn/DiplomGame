@@ -2,25 +2,25 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ladder.png-b89e7aa78e2287841c95213d8891ddaf.stex"
+path="res://.import/watches_16-50.png-71b799ab2863aa3f9b9118b8363122aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ladder.png"
-dest_files=[ "res://.import/ladder.png-b89e7aa78e2287841c95213d8891ddaf.stex" ]
+source_file="res://Sprites/Watches/watches_16-50.png"
+dest_files=[ "res://.import/watches_16-50.png-71b799ab2863aa3f9b9118b8363122aa.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

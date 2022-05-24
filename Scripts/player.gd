@@ -89,43 +89,54 @@ func movement(WALK_SPEED: float, _delta: float) -> void:
 func hotline_movement(WALK_SPEED: float, _delta: float) -> void:
 
 	var speed = WALK_SPEED
+	var speed_mult = 0.5
 
 	if input.right():
 		state = State.RUN
 		vel.x = speed
 		if input.up():
-			vel.y = -speed/2
+			vel.y = -speed * speed_mult
 		elif input.down():
-			vel.y = speed/2
+			vel.y = speed * speed_mult
 
 	elif input.left():
 		state = State.RUN
 		vel.x = -speed
 		if input.up():
-			vel.y = -speed/2
+			vel.y = -speed * speed_mult
 		elif input.down():
-			vel.y = speed/2
+			vel.y = speed * speed_mult
 
 	elif input.up():
 		state = State.RUN
 		vel.y = -speed
 		if input.left():
-			vel.x = -speed/2
+			vel.x = -speed * speed_mult
 		elif input.right():
-			vel.x = speed/2
+			vel.x = speed * speed_mult
 
 	elif input.down():
 		state = State.RUN
 		vel.y = speed
 		if input.left():
-			vel.x = -speed/2
+			vel.x = -speed * speed_mult
 		elif input.right():
-			vel.x = speed/2
+			vel.x = speed * speed_mult
 
 	else:
 		state = State.IDLE
 		vel.x = 0
 		vel.y = 0
+
+	vel = move_and_slide(vel, Vector2.ZERO, false)
+	if vel.length() > 0:
+		vel = vel.normalized() * WALK_SPEED
+
+func hotline_mouse_track() -> void:
+	var mouse = get_global_mouse_position()
+	var ang_rads = get_angle_to(mouse)
+	var ang_degr = ang_rads * (180 / PI)
+	$idle_sprite.rotation_degrees = ang_degr
 
 func ladder() -> void:
 
@@ -177,7 +188,6 @@ func movement_limitations() -> void: # to except possible bugs
 	if !input.just_right() and !input.just_left() and !input.left() and !input.right() and is_on_floor():
 		vel.x = 0
 
-
 func _process(_delta: float) -> void:
 
 	"""
@@ -226,9 +236,7 @@ func _physics_process(delta: float) -> void:
 	if G.is_indoor:
 		hotline_movement(WALK_SPEED, delta)
 		movement_limitations()
-		vel = move_and_slide(vel, Vector2.ZERO, false)
-		if vel.length() > 0:
-			vel = vel.normalized() * WALK_SPEED
+		hotline_mouse_track()
 	else:
 		vel.y += mass * delta + 25
 		#print(state)

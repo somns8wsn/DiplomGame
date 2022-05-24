@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/purple.png-cba87f6ef4617549cfd2fac40a706bc9.stex"
+path="res://.import/stone_bin.png-2e63a46a889a5f86c887ecfba9e4de3f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/purple.png"
-dest_files=[ "res://.import/purple.png-cba87f6ef4617549cfd2fac40a706bc9.stex" ]
+source_file="res://Sprites/Infrastructure/stone_bin.png"
+dest_files=[ "res://.import/stone_bin.png-2e63a46a889a5f86c887ecfba9e4de3f.stex" ]
 
 [params]
 

@@ -7,7 +7,7 @@ signal _on_player_sat()
 
 func _is_near_chair_player_entered(body) -> void:
 	if "player" in body.name:
-		print("near")
+		#print("near")
 		is_player_near_chair = true
 	else:
 		is_player_near_chair = false
@@ -15,7 +15,7 @@ func _is_near_chair_player_entered(body) -> void:
 
 func _on_chair_mouse_left_click_input_event(_viewport, _event, _shape_idx) -> void:
 	if Input.is_action_just_pressed("left_click"):
-		print("clicked")
+		#print("clicked")
 		is_player_clicked_chair = true
 	else:
 		is_player_clicked_chair = false
