@@ -25,17 +25,13 @@ stretch=true
 [application]
 
 config/name="DiplomGame"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/testing_main.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 
 [autoload]
 
 G="*res://Scripts/global.gd"
-
-[debug]
-
-settings/stdout/print_fps=true
 
 [display]
 

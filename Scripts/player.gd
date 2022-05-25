@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-var mass := 1000.0
-var vel := Vector2.ZERO
+var mass := 1000.0 # how heavy a player is
+var vel := Vector2.ZERO # movement direction
 
 const WALK_SPEED = 300
 const SPRINT_SPEED = WALK_SPEED*1.5
@@ -18,10 +18,10 @@ enum State{ # all possible player states
 	TALKING,
 }
 
-var state = State.IDLE
+var state = State.IDLE # current player state
 
 
-class input:
+class input: # player control check
 	static func right() -> bool:
 		return Input.is_action_pressed("ui_right")
 	static func just_right() -> bool:
@@ -82,13 +82,13 @@ func movement(WALK_SPEED: float, _delta: float) -> void:
 				vel.x = -WALK_SPEED
 
 	else:
-		if input.just_right_release() or input.just_left_release():
+		if input.just_right_release() or input.just_left_release(): # if non buttons are pressed, then stop
 			vel.x = 0
 			state = State.IDLE
 
-func hotline_movement(WALK_SPEED: float, _delta: float) -> void:
+func topdown_movement(WALK_SPEED: float, _delta: float) -> void:
 
-	var speed = WALK_SPEED
+	var speed = 500
 	var speed_mult = 0.5
 
 	if input.right():
@@ -128,15 +128,15 @@ func hotline_movement(WALK_SPEED: float, _delta: float) -> void:
 		vel.x = 0
 		vel.y = 0
 
-	vel = move_and_slide(vel, Vector2.ZERO, false)
-	if vel.length() > 0:
-		vel = vel.normalized() * WALK_SPEED
+	vel = move_and_slide(vel, Vector2.ZERO).normalized()
 
-func hotline_mouse_track() -> void:
-	var mouse = get_global_mouse_position()
-	var ang_rads = get_angle_to(mouse)
-	var ang_degr = ang_rads * (180 / PI)
-	$idle_sprite.rotation_degrees = ang_degr
+#	if vel.length() > 0: # if player speed is greater than 0, then decrease it to 0 smoothly
+#		vel = vel.normalized() * WALK_SPEED
+
+func topdown_mouse_track(delta) -> void: # player's texture always face-tracking cursor
+	var mouse := get_global_mouse_position()
+	var ang := rad2deg(get_angle_to(mouse)) # get cursor angle relative to player node
+	$idle_sprite.rotation_degrees = ang
 
 func ladder() -> void:
 
@@ -146,10 +146,10 @@ func ladder() -> void:
 
 
 		if input.up():
-			vel.y -= 100
+			vel.y -= 100 # climbing up
 
 		elif input.down():
-			vel.y += 100
+			vel.y += 100 # climbing down
 
 	else:
 		state = State.IDLE
@@ -158,15 +158,15 @@ func duck() -> void:
 
 	var is_ceiling_above : bool = $ceiling_check.is_colliding()
 
-	if input.down() and is_on_floor():
+	if input.down() and is_on_floor(): # if not airborn -> duck
 		state = State.DUCK
 		$idle_collision.disabled = true
 
-	elif (input.just_down_release() and is_ceiling_above) or is_ceiling_above:
+	elif (input.just_down_release() and is_ceiling_above) or is_ceiling_above: # if ceiling is above -> continue sitting
 			state = State.DUCK
 			$idle_collision.disabled = true
 
-	elif !is_ceiling_above:
+	elif !is_ceiling_above: # if no ceiling above -> stand up
 			state = State.IDLE
 			$idle_collision.disabled = false
 
@@ -196,7 +196,7 @@ func _process(_delta: float) -> void:
 	and also because of the 100% symmetric shape.
 	"""
 
-	var face: Node = $face
+	var face: Node = $idle_sprite/face
 	var grap_area: Node = $grap_area
 	var grap_collision: Node = $grap_collision
 	var ceiling_check: Node = $ceiling_check
@@ -234,11 +234,11 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if G.is_indoor:
-		hotline_movement(WALK_SPEED, delta)
+		topdown_movement(WALK_SPEED, delta)
 		movement_limitations()
-		hotline_mouse_track()
+		topdown_mouse_track(delta)
 	else:
-		vel.y += mass * delta + 25
+		vel.y += mass * delta + 25 # gravitation effect
 		#print(state)
 		movement(WALK_SPEED, delta)
 		ladder()
@@ -246,7 +246,8 @@ func _physics_process(delta: float) -> void:
 		jump()
 		movement_limitations()
 
-		vel = move_and_slide(vel, Vector2.UP)
+		vel = move_and_slide(vel, Vector2.UP) # apply coordinate changes according
+											  # 	to move and clide function for frame
 
 #func _on_wooden_chair_player_sat() -> void:
 #	print("work")
