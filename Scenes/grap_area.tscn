@@ -1,17 +1,29 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/grap_area.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/red.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[ext_resource path="res://Sprites/For Tests/red.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+func _process(_delta) -> void:
+	pass
+func _physics_process(_delta) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+
 
 [node name="grap_area" type="KinematicBody2D"]
 collision_layer = 8
 collision_mask = 4
-script = ExtResource( 1 )
+
+script = SubResource( 1 )
 
 [node name="grap_collider" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false

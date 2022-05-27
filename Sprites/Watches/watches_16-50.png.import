@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/yellow.png-88db22db436f66a4dfd96f9f4319249c.stex"
+path="res://.import/watches_16-50.png-71b799ab2863aa3f9b9118b8363122aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/yellow.png"
-dest_files=[ "res://.import/yellow.png-88db22db436f66a4dfd96f9f4319249c.stex" ]
+source_file="res://Sprites/Watches/watches_16-50.png"
+dest_files=[ "res://.import/watches_16-50.png-71b799ab2863aa3f9b9118b8363122aa.stex" ]
 
 [params]
 
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

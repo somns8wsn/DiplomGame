@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wooden_chair.png-f48d018892d2149098eb3dcaebf36d35.stex"
+path="res://.import/watches_18-20.png-8616277c1b550303ba5976f42a2966f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/wooden_chair.png"
-dest_files=[ "res://.import/wooden_chair.png-f48d018892d2149098eb3dcaebf36d35.stex" ]
+source_file="res://Sprites/Watches/watches_18-20.png"
+dest_files=[ "res://.import/watches_18-20.png-8616277c1b550303ba5976f42a2966f1.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
