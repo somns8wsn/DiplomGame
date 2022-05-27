@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/ButtonNormal.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 159.0
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends TouchScreenButton
+
+
+func _on_TouchScreenButton_pressed():
+	
+	print(\"11111\")
+	
+func _physics_process(delta: float) -> void:
+	
+	
+
+
+"
+
+[node name="TouchScreenButton" type="TouchScreenButton"]
+normal = ExtResource( 1 )
+shape = SubResource( 2 )
+passby_press = true
+script = SubResource( 1 )
+[connection signal="pressed" from="." to="." method="_on_TouchScreenButton_pressed"]
