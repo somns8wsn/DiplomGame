@@ -1,43 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/crate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/main_scene.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/platform_block.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/any_npc.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/ladder.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/wooden_chair.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/topdown_player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/street_light.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/For Tests/blue.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/slippers.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/dumbbell.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/rubberized_black_disk.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 42.9122, 1050.15 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
 
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 955.009, 540 )
+scale = Vector2( 127.115, 74.5965 )
+z_index = -23
+texture = ExtResource( 9 )
+
 [node name="platforming" type="Node2D" parent="."]
+position = Vector2( 16, 488 )
 
 [node name="platform_block" parent="platforming" instance=ExtResource( 3 )]
 position = Vector2( 8, 576 )
 
 [node name="platform_block2" parent="platforming" instance=ExtResource( 3 )]
 position = Vector2( 56, 576 )
-
-[node name="platform_block23" parent="platforming" instance=ExtResource( 3 )]
-position = Vector2( 64, 528 )
-scale = Vector2( 1, 3 )
-
-[node name="platform_block24" parent="platforming" instance=ExtResource( 3 )]
-position = Vector2( 64, 480 )
-scale = Vector2( 1, 3 )
-
-[node name="platform_block25" parent="platforming" instance=ExtResource( 3 )]
-position = Vector2( 64, 432 )
-scale = Vector2( 1, 3 )
-
-[node name="platform_block26" parent="platforming" instance=ExtResource( 3 )]
-position = Vector2( 64, 384 )
-scale = Vector2( 1, 3 )
-
-[node name="platform_block27" parent="platforming" instance=ExtResource( 3 )]
-position = Vector2( 63.9173, 376.151 )
-scale = Vector2( 1, 3 )
 
 [node name="platform_block3" parent="platforming" instance=ExtResource( 3 )]
 position = Vector2( 104, 576 )
@@ -99,38 +93,122 @@ position = Vector2( 968, 576 )
 [node name="platform_block22" parent="platforming" instance=ExtResource( 3 )]
 position = Vector2( 1016, 576 )
 
-[node name="ladder" parent="." instance=ExtResource( 5 )]
-position = Vector2( 88.5711, 444.7 )
-scale = Vector2( 7, 7 )
+[node name="platform_block23" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1064, 576 )
+
+[node name="platform_block24" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1112, 576 )
+
+[node name="platform_block25" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1160, 576 )
+
+[node name="platform_block26" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1208, 576 )
+
+[node name="platform_block27" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1256, 576 )
+
+[node name="platform_block28" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1304, 576 )
+
+[node name="platform_block29" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1352, 576 )
+
+[node name="platform_block30" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1392, 576 )
+
+[node name="platform_block31" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1440, 576 )
+
+[node name="platform_block32" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1488, 576 )
+
+[node name="platform_block33" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1536, 576 )
+
+[node name="platform_block34" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1584, 576 )
+
+[node name="platform_block35" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1632, 576 )
+
+[node name="platform_block36" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1680, 576 )
+
+[node name="platform_block37" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1728, 576 )
+
+[node name="platform_block38" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1776, 576 )
+
+[node name="platform_block39" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1824, 576 )
+
+[node name="platform_block40" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1872, 576 )
+
+[node name="platform_block41" parent="platforming" instance=ExtResource( 3 )]
+position = Vector2( 1920, 576 )
 
 [node name="crate" parent="." instance=ExtResource( 1 )]
-position = Vector2( 738.482, 480.13 )
+position = Vector2( 1280, 967.954 )
 scale = Vector2( 3, 3 )
 
 [node name="crate4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 392, 274.597 )
+position = Vector2( 624, 793.148 )
 scale = Vector2( 3, 3 )
 
 [node name="crate2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 920, 480.13 )
+position = Vector2( 1461.52, 967.954 )
 scale = Vector2( 3, 3 )
 
 [node name="crate3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 848, 336.176 )
+position = Vector2( 1389.52, 824 )
 scale = Vector2( 3, 3 )
 
 [node name="NPC" parent="." instance=ExtResource( 4 )]
-position = Vector2( 599.936, 510.591 )
+position = Vector2( 648, 957.763 )
 scale = Vector2( 2, 2 )
 
 [node name="wooden_chair" parent="." instance=ExtResource( 6 )]
-position = Vector2( 518.886, 519.21 )
+position = Vector2( 985.335, 999.231 )
 scale = Vector2( 0.7, 0.7 )
 
-[node name="player" parent="." instance=ExtResource( 7 )]
-position = Vector2( 272, 490.308 )
-rotation = 0.0
-scale = Vector2( 3, 3 )
-collision_layer = 2147483648
-collision_mask = 0
-[connection signal="_on_player_sat" from="wooden_chair" to="player" method="_on_wooden_chair_player_sat"]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.556863, 0.552941, 0.552941, 1 )
+
+[node name="street_light" parent="." instance=ExtResource( 8 )]
+position = Vector2( 840, 793.148 )
+
+[node name="topdown_player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 393.3, 865.148 )
+scale = Vector2( 4, 4 )
+
+[node name="slippers" parent="." instance=ExtResource( 10 )]
+position = Vector2( 182, 557 )
+
+[node name="rubberized_black_disk" parent="." instance=ExtResource( 12 )]
+position = Vector2( 440, 443 )
+
+[node name="dumbbell" parent="." instance=ExtResource( 11 )]
+position = Vector2( 744, 507 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 1960, 543.148 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( -25.9922, 543.148 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 936, -26.7602 )
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource( 1 )

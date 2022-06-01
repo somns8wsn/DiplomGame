@@ -25,13 +25,17 @@ stretch=true
 [application]
 
 config/name="DiplomGame"
-run/main_scene="res://Scenes/testing_main.tscn"
+run/main_scene="res://Scenes/home_01.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 
 [autoload]
 
 G="*res://Scripts/global.gd"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [display]
 
@@ -115,6 +119,11 @@ ui_jump={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
+quit_debug={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777250,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer]
 
@@ -130,6 +139,7 @@ layer=false
 2d_physics/layer_5="NPC"
 2d_physics/layer_6="chair"
 2d_physics/layer_7="item"
+2d_physics/layer_8="junk"
 2d_physics/layer_9="checker"
 
 [physics]
@@ -138,4 +148,5 @@ layer=false
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

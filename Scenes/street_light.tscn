@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Infrastructure/Street Light/street_light_sample.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Environment/simple_light.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/For Tests/blue.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -8,8 +10,6 @@ script/source = "extends Node2D
 onready var street_lights = [load(\"res://Sprites/Infrastructure/Street Light/street_light_electrical_panel.png\"),
 							load(\"res://Sprites/Infrastructure/Street Light/street_light_lost_cat.png\"),
 							load(\"res://Sprites/Infrastructure/Street Light/street_light_sample.png\")]
-#onready var street_light2 = load(\"res://Sprites/Infrastructure/Street Light/street_light_lost_cat.png\")
-#onready var street_light3 = load(\"res://Sprites/Infrastructure/Street Light/street_light_sample.png\")
 
 
 func _ready() -> void:
@@ -20,5 +20,26 @@ func _ready() -> void:
 [node name="street_light" type="Node2D"]
 script = SubResource( 1 )
 
+[node name="back" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 85.0949, 69.0768 )
+texture = ExtResource( 3 )
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, 1.52588e-05 )
+scale = Vector2( 1.57444, 0.933682 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 141.17 )
+energy = 0.82
+shadow_enabled = true
+
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 0, 1.52588e-05 )
+scale = Vector2( 1.57444, 0.933682 )
+enabled = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 141.17 )
+energy = 0.2

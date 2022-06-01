@@ -14,7 +14,7 @@ dest_files=[ "res://.import/ladder.png-a30dce31d7c8e2c7a134e6e3ca9c9118.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bread.png-529ddd2b6bba194a5959ea8eb260a4b9.stex"
+path="res://.import/simple_light.png-afdf4f4b487e1b893e6aad3bf4de33fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/bread.png"
-dest_files=[ "res://.import/bread.png-529ddd2b6bba194a5959ea8eb260a4b9.stex" ]
+source_file="res://Sprites/Environment/simple_light.png"
+dest_files=[ "res://.import/simple_light.png-afdf4f4b487e1b893e6aad3bf4de33fa.stex" ]
 
 [params]
 
