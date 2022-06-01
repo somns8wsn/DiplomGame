@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 var mass := 1000.0 # how heavy a player is
 var vel := Vector2.ZERO # movement direction
+var state = State.IDLE # current player state
 
 const WALK_SPEED = 300
 const SPRINT_SPEED = WALK_SPEED*1.5
@@ -19,9 +20,6 @@ enum State{ # all possible player states
 	CLIMBING,
 	TALKING,
 }
-
-
-var state = State.IDLE # current player state
 
 
 class input: # player control check
@@ -89,57 +87,6 @@ func movement(WALK_SPEED: float, _delta: float) -> void:
 			vel.x = 0
 			state = State.IDLE
 
-func topdown_movement(WALK_SPEED: float, _delta: float) -> void:
-
-	var speed = 500
-	var speed_mult = 0.5
-
-	if input.right():
-		state = State.RUN
-		vel.x = speed
-		if input.up():
-			vel.y = -speed * speed_mult
-		elif input.down():
-			vel.y = speed * speed_mult
-
-	elif input.left():
-		state = State.RUN
-		vel.x = -speed
-		if input.up():
-			vel.y = -speed * speed_mult
-		elif input.down():
-			vel.y = speed * speed_mult
-
-	elif input.up():
-		state = State.RUN
-		vel.y = -speed
-		if input.left():
-			vel.x = -speed * speed_mult
-		elif input.right():
-			vel.x = speed * speed_mult
-
-	elif input.down():
-		state = State.RUN
-		vel.y = speed
-		if input.left():
-			vel.x = -speed * speed_mult
-		elif input.right():
-			vel.x = speed * speed_mult
-
-	else:
-		state = State.IDLE
-		vel.x = 0
-		vel.y = 0
-
-	vel = move_and_slide(vel, Vector2.ZERO).normalized()
-
-#	if vel.length() > 0: # if player speed is greater than 0, then decrease it to 0 smoothly
-#		vel = vel.normalized() * WALK_SPEED
-
-func topdown_mouse_track(delta) -> void: # player's texture always face-tracking cursor
-	var mouse := get_global_mouse_position()
-	var ang := rad2deg(get_angle_to(mouse)) # get cursor angle relative to player node
-	$idle_sprite.rotation_degrees = ang
 
 func ladder() -> void:
 
@@ -185,8 +132,6 @@ func movement_limitations() -> void: # to except possible bugs
 
 	if input.left() and input.right():
 		vel.x = 0
-		if G.is_indoor:
-			vel.y = 0
 
 
 	if !input.just_right() and !input.just_left() and !input.left() and !input.right() and is_on_floor():
@@ -225,6 +170,7 @@ func _process(_delta: float) -> void:
 
 
 	if input.right():
+
 		face.position.x = abs(face.position.x)
 
 		grap_area.position.x = abs(grap_area.position.x)
@@ -240,13 +186,9 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if G.is_indoor:
-		topdown_movement(WALK_SPEED, delta)
-		movement_limitations()
-		topdown_mouse_track(delta)
-	else:
+
 		vel.y += mass * delta + 25 # gravitation effect
-		#print(state)
+
 		movement(WALK_SPEED, delta)
 		ladder()
 		duck()
@@ -256,6 +198,7 @@ func _physics_process(delta: float) -> void:
 		vel = move_and_slide(vel, Vector2.UP) # apply coordinate changes according
 											  # 	to move and clide function for frame
 
-#func _on_wooden_chair_player_sat() -> void:
-#	print("work")
+
+func _on_wooden_chair_player_sat() -> void:
+	pass#print("work")
 
