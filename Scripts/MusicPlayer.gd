@@ -7,28 +7,32 @@ onready var MplayerOsnovaRewindGo = load("res://Sprites/musicplayer/MplayerOsnov
 
 onready var MusicForPlayer1 = load("res://song/PlayerMusic/MusicForPlayer1.mp3")
 var temp: float
-var rewind: float = 1.0
 
 func _on_ClickPlay_pressed():
 	$MusicOsnova.texture = MplayerOsnovaPlay
-	$AudioStreamPlayer.play()
-	$AudioStreamPlayer.seek(temp)
+	$AudioStreamPlayerSdachaInst.play()
+	$AudioStreamPlayerSdachaInst.seek(temp)
 	temp = 0
 
 func _on_ClickPause_pressed():
 	$MusicOsnova.texture = MplayerOsnovaPause
-	temp = $AudioStreamPlayer.get_playback_position()
+	temp = $AudioStreamPlayerSdachaInst.get_playback_position()
 	#print(temp)
-	$AudioStreamPlayer.stop()
+	$AudioStreamPlayerSdachaInst.stop()
+	$AudioStreamPlayerSovestInst.stop()
 
 
-func _on_ClickRewindBack_pressed():
+func _on_ClickBack_pressed():
 	$MusicOsnova.texture = MplayerOsnovaRewindBack
-	var back = $AudioStreamPlayer.get_playback_position() - rewind
-	$AudioStreamPlayer.seek(back)
+	$AudioStreamPlayerSdachaInst.play()
+	$AudioStreamPlayerSovestInst.stop()
+	#var back = $AudioStreamPlayer1.get_playback_position() - rewind
+	#$AudioStreamPlayer1.seek(back)
 
 
-func _on_ClickRewindGo_pressed():
+func _on_ClickGo_pressed():
 	$MusicOsnova.texture = MplayerOsnovaRewindGo
-	var forward = $AudioStreamPlayer.get_playback_position() + rewind
-	$AudioStreamPlayer.seek(forward)
+	$AudioStreamPlayerSovestInst.play()
+	$AudioStreamPlayerSdachaInst.stop()
+	#var forward = $AudioStreamPlayer1.get_playback_position() + rewind
+	#$AudioStreamPlayer1.seek(forward)
