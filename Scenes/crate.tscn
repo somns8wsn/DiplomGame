@@ -10,14 +10,14 @@ func _ready() -> void:
 	pass
 "
 
-[sub_resource type="OccluderPolygon2D" id=4]
+[sub_resource type="OccluderPolygon2D" id=2]
 cull_mode = 1
 polygon = PoolVector2Array( -24, -24, 24, -24, 24, 24, -24, 24 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 1.46542, 1.57821 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 24, 24 )
 
 [node name="crate" type="StaticBody2D"]
@@ -26,15 +26,15 @@ collision_mask = 265
 script = SubResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 4 )
+occluder = SubResource( 2 )
 
 [node name="grap" type="CollisionShape2D" parent="."]
 position = Vector2( -23.0663, -10.284 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 one_way_collision = true
 
 [node name="crate_collider" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )

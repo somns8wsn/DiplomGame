@@ -8,5 +8,5 @@ func _process(_delta: float) -> void:
 	pass
 
 func _physics_process(_delta: float) -> void:
-	$key.position = get_global_mouse_position()
+	$topdown_player.position = get_global_mouse_position()
 	pass

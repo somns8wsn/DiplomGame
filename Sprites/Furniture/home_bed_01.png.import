@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/main_chars_home.png-64ef88f77a45ed7103198aaec13344ec.stex"
+path="res://.import/home_bed_01.png-27902d1ec4e22a488f5b4a2cb4bf7894.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Locations/main_chars_home.png"
-dest_files=[ "res://.import/main_chars_home.png-64ef88f77a45ed7103198aaec13344ec.stex" ]
+source_file="res://Sprites/Furniture/home_bed_01.png"
+dest_files=[ "res://.import/home_bed_01.png-27902d1ec4e22a488f5b4a2cb4bf7894.stex" ]
 
 [params]
 

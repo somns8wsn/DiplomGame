@@ -25,7 +25,7 @@ stretch=true
 [application]
 
 config/name="DiplomGame"
-run/main_scene="res://Scenes/home_01.tscn"
+run/main_scene="res://Scenes/testing_main.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 
@@ -141,6 +141,7 @@ layer=false
 2d_physics/layer_7="item"
 2d_physics/layer_8="junk"
 2d_physics/layer_9="checker"
+2d_physics/layer_10="wall"
 
 [physics]
 
@@ -149,4 +150,4 @@ layer=false
 [rendering]
 
 quality/driver/driver_name="GLES2"
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://Resources/default_env.tres"

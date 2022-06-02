@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/door_minigame.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/topdown_player.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 78.657
@@ -11,8 +12,11 @@ extents = Vector2( 68.3234, 9.06763 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[sub_resource type="RayShape2D" id=4]
-length = 87.7864
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1.19789, 47.4328 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 15.9207, 15.2076 )
 
 [node name="door_minigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -57,12 +61,14 @@ input_pickable = false
 collision_mask = 2
 
 [node name="key_area_form" type="CollisionShape2D" parent="key/key_area"]
+position = Vector2( 1.62702e-11, -143.114 )
 rotation = -3.14159
 scale = Vector2( 6.295, 3.049 )
 shape = SubResource( 4 )
 
 [node name="keyhole" type="StaticBody2D" parent="."]
 collision_layer = 2
+constant_linear_velocity = Vector2( 0, 18 )
 
 [node name="keyhole_form" type="CollisionPolygon2D" parent="keyhole"]
 position = Vector2( -1086.26, -912.615 )
@@ -76,7 +82,8 @@ collision_layer = 2
 
 [node name="keyhole_texture" type="Sprite" parent="keyhole/keyhole_area"]
 
-[node name="keyhole_area_form" type="CollisionPolygon2D" parent="keyhole/keyhole_area"]
-position = Vector2( -1584.91, -1303.92 )
-scale = Vector2( 2, 2 )
-polygon = PoolVector2Array( 776, 648, 808, 648, 808, 763.969, 804, 768, 800, 764, 800, 656, 784, 656, 784, 764.017, 779.973, 768, 776, 764 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="keyhole/keyhole_area"]
+position = Vector2( -0.840881, 22.9736 )
+shape = SubResource( 5 )
+
+[node name="topdown_player" parent="." instance=ExtResource( 5 )]
