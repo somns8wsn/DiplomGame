@@ -1,6 +1,7 @@
 extends Node2D
 
 var floor_junk := preload("res://Scenes/floor_junk.tscn")
+onready var TV = load("TV")
 
 func _ready() -> void:
 	$slippers/Sprite.set_flip_h(true)
@@ -16,3 +17,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#$dumbbell.position.y = 578.346
 	pass
+
+
+func _on_Area2D_area_entered(area):
+	if entered.visibility_changed("TV"):
+		$TV.visible = !$TV.visible

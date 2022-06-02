@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TV.png-eb651bb4d8a190fa93e9b08b0cf60040.stex"
+path="res://.import/QTE_Window.png-d653c927e467d76b19f8a4685cf39052.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Furniture/TV.png"
-dest_files=[ "res://.import/TV.png-eb651bb4d8a190fa93e9b08b0cf60040.stex" ]
+source_file="res://Sprites/QTE_files/QTE_image/QTE_Window.png"
+dest_files=[ "res://.import/QTE_Window.png-d653c927e467d76b19f8a4685cf39052.stex" ]
 
 [params]
 
