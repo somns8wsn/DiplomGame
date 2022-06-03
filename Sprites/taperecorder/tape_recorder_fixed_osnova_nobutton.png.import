@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tape_recorder_fixed_osnova_nobutton.png-b72ed4e6bf3161bc1cf0f29adc5bd002.stex"
+path="res://.import/tape_recorder_fixed_osnova_nobutton.png-f4e597d7c5e00dd878dc5ca8e9f00348.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/taperecorder/tape_recorder_fixed_osnova_nobutton.png"
-dest_files=[ "res://.import/tape_recorder_fixed_osnova_nobutton.png-b72ed4e6bf3161bc1cf0f29adc5bd002.stex" ]
+source_file="res://Sprites/Taperecorder/tape_recorder_fixed_osnova_nobutton.png"
+dest_files=[ "res://.import/tape_recorder_fixed_osnova_nobutton.png-f4e597d7c5e00dd878dc5ca8e9f00348.stex" ]
 
 [params]
 

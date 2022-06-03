@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/music_by_Alexey_Sovest_inst.mp3-1c7ee6b78336e9d34a606eca0cfa8004.mp3str"
+path="res://.import/music_by_Alexey_Sovest_inst.mp3-06d441b2e84074f80e04f742b8473374.mp3str"
 
 [deps]
 
-source_file="res://song/PlayerMusic/music_by_Alexey_Sovest_inst.mp3"
-dest_files=[ "res://.import/music_by_Alexey_Sovest_inst.mp3-1c7ee6b78336e9d34a606eca0cfa8004.mp3str" ]
+source_file="res://Song/PlayerMusic/music_by_Alexey_Sovest_inst.mp3"
+dest_files=[ "res://.import/music_by_Alexey_Sovest_inst.mp3-06d441b2e84074f80e04f742b8473374.mp3str" ]
 
 [params]
 

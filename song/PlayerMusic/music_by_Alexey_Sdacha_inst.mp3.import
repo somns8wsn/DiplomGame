@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/music_by_Alexey_Sdacha_inst.mp3-d6b2c091358403ece82fb69f7374b4ba.mp3str"
+path="res://.import/music_by_Alexey_Sdacha_inst.mp3-7f380d8f262e1ddd11f10d39a93b87e2.mp3str"
 
 [deps]
 
-source_file="res://song/PlayerMusic/music_by_Alexey_Sdacha_inst.mp3"
-dest_files=[ "res://.import/music_by_Alexey_Sdacha_inst.mp3-d6b2c091358403ece82fb69f7374b4ba.mp3str" ]
+source_file="res://Song/PlayerMusic/music_by_Alexey_Sdacha_inst.mp3"
+dest_files=[ "res://.import/music_by_Alexey_Sdacha_inst.mp3-7f380d8f262e1ddd11f10d39a93b87e2.mp3str" ]
 
 [params]
 

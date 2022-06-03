@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MplayerOsnovaPause.png-ff29174939afdeab5643c32ece6aa3b9.stex"
+path="res://.import/MplayerOsnovaPause.png-482b5113a70b7fa6acc6e85dcde4bdaa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/musicplayer/MplayerOsnovaPause.png"
-dest_files=[ "res://.import/MplayerOsnovaPause.png-ff29174939afdeab5643c32ece6aa3b9.stex" ]
+source_file="res://Sprites/Musicplayer/MplayerOsnovaPause.png"
+dest_files=[ "res://.import/MplayerOsnovaPause.png-482b5113a70b7fa6acc6e85dcde4bdaa.stex" ]
 
 [params]
 
