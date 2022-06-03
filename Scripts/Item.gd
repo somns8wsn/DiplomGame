@@ -10,7 +10,7 @@ func _ready():
 	elif rand_val == 1:
 		item_name = "Bread"
 	else:
-		item_name = "Key"
+		item_name = "trash_cigarette_box"
 
 	$TextureRect.texture = load("res://Sprites/item_files/" + item_name + ".png")
 	var stack_size = int(JsonData.item_data[item_name]["StackSize"])

@@ -19,7 +19,7 @@ script = ExtResource( 3 )
 [node name="TapeRecorderOsnova" type="TextureRect" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-rect_scale = Vector2( 0.6, 0.6 )
+rect_scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 
 [node name="ClickPlay" type="TextureButton" parent="TapeRecorderOsnova"]

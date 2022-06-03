@@ -11,20 +11,15 @@ script = ExtResource( 3 )
 [node name="MusicOsnova" type="TextureRect" parent="."]
 margin_right = 300.0
 margin_bottom = 196.0
+rect_scale = Vector2( 2, 1.7 )
 texture = ExtResource( 1 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ClickPlay" type="Button" parent="MusicOsnova"]
 margin_left = 12.0
 margin_right = 31.0
 margin_bottom = 26.0
 flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ClickPause" type="Button" parent="MusicOsnova"]
 margin_left = 33.0
