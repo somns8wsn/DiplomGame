@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/primer.mp3-941e7e915d0261915fd0dad8067874b5.mp3str"
+
+[deps]
+
+source_file="res://Songs/MusicPlayer/primer.mp3"
+dest_files=[ "res://.import/primer.mp3-941e7e915d0261915fd0dad8067874b5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

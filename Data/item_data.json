@@ -1,0 +1,19 @@
+{
+ "money": {
+    "ItemCategory": "Resource",
+    "StackSize": 99,
+    "Description": "Coin, can be used in a coffee machine."
+  },
+  "bread": {
+    "ItemCategory": "Consumable",
+    "AddHealth": 5,
+    "AddEnergy": 20,
+    "StackSize": 99,
+    "Description": "Without water, it's going to be hard."
+  },
+  "trash_cigarette_box": {
+    "ItemCategory": "trash",
+    "StackSize": 1,
+    "Description": "trash_cigarette_box"
+  }
+}
