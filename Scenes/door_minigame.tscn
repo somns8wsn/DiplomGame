@@ -57,8 +57,8 @@ shape = SubResource( 3 )
 [node name="key_texture" type="Sprite" parent="key"]
 
 [node name="key_area" type="Area2D" parent="key"]
-input_pickable = false
 collision_mask = 2
+input_pickable = false
 
 [node name="key_area_form" type="CollisionShape2D" parent="key/key_area"]
 position = Vector2( 1.62702e-11, -143.114 )
@@ -77,8 +77,8 @@ polygon = PoolVector2Array( 776, 648, 808, 648, 808, 763.969, 804, 768, 800, 764
 
 [node name="keyhole_area" type="Area2D" parent="keyhole"]
 position = Vector2( 498.653, 391.308 )
-input_pickable = false
 collision_layer = 2
+input_pickable = false
 
 [node name="keyhole_texture" type="Sprite" parent="keyhole/keyhole_area"]
 

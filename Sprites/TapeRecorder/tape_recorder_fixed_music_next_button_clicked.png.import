@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tape_recorder_fixed_music_next_button_clicked.png-bf2953d35d56f432046d8cc7a9dd1867.stex"
+path="res://.import/tape_recorder_fixed_music_next_button_clicked.png-f5d30b7950d92856c2bdca9f236a8dce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/taperecorder/tape_recorder_fixed_music_next_button_clicked.png"
-dest_files=[ "res://.import/tape_recorder_fixed_music_next_button_clicked.png-bf2953d35d56f432046d8cc7a9dd1867.stex" ]
+source_file="res://Sprites/TapeRecorder/tape_recorder_fixed_music_next_button_clicked.png"
+dest_files=[ "res://.import/tape_recorder_fixed_music_next_button_clicked.png-f5d30b7950d92856c2bdca9f236a8dce.stex" ]
 
 [params]
 

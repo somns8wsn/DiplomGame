@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dumbbell.png-7c00a030bb9a2686115a58cda2a28cf3.stex"
+path="res://.import/dumbbell.png-b1709090d5fd9d98021ce4672a8b0d91.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Floor Junk/dumbbell.png"
-dest_files=[ "res://.import/dumbbell.png-7c00a030bb9a2686115a58cda2a28cf3.stex" ]
+source_file="res://Sprites/FloorJunk/dumbbell.png"
+dest_files=[ "res://.import/dumbbell.png-b1709090d5fd9d98021ce4672a8b0d91.stex" ]
 
 [params]
 

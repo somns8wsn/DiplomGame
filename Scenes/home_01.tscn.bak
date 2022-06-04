@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Sprites/Locations/home_background_01.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Locations/main_chars_home.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/home_01.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/topdown_player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/rubberized_black_disk.tscn" type="PackedScene" id=4]
@@ -12,16 +12,25 @@
 [ext_resource path="res://Sprites/ForTests/light.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Environment/simple_light.png" type="Texture" id=11]
 [ext_resource path="res://Resources/Occluders/home_01_walls_occluder.tres" type="OccluderPolygon2D" id=12]
-[ext_resource path="res://Sprites/QTE-Files/QTE-Image/qte_window_pouring.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/QTE-Files/QTE-Image/qte_window.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 201.429, 140.692 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 38.6724
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 57.3724, 53.4559 )
+[ext_resource path="res://Sprites/QTE_files/QTE_image/QTE_Window_pouring.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/QTE_files/QTE_image/QTE_Window.png" type="Texture" id=9]
 [ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Italic Nerd Font Complete Mono.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Nerd Font Complete Mono.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://Scenes/inventory.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scripts/ui_inventory.gd" type="Script" id=13]
-[ext_resource path="res://Scripts/ui_music_player.gd" type="Script" id=14]
-[ext_resource path="res://Scenes/music_player.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/tape_recorder.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scripts/ui_tape_recorder.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/Inventory.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/UInventory.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/UIMusicPlayer.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/MusicPlayer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/TapeRecorder.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/UITape_recorder.gd" type="Script" id=17]
 
 [sub_resource type="DynamicFont" id=3]
 size = 100
@@ -122,6 +131,7 @@ collision_layer = 2
 collision_mask = 65
 
 [node name="bed_form" type="CollisionShape2D" parent="bed"]
+shape = SubResource( 1 )
 
 [node name="bed_texture" type="Sprite" parent="bed"]
 texture = ExtResource( 7 )
@@ -191,6 +201,7 @@ occluder = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
 position = Vector2( 1409.99, 711.318 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
 position = Vector2( 592.128, 646.206 )
@@ -375,13 +386,13 @@ zoom = Vector2( 0.2, 0.2 )
 
 [node name="TV" type="Node" parent="."]
 
-[node name="TV" type="Control" parent="TV"]
+[node name="TVv" type="Control" parent="TV"]
 margin_left = 289.0
 margin_top = 587.0
 margin_right = 289.0
 margin_bottom = 587.0
 
-[node name="Body_NinePatchRect" type="NinePatchRect" parent="TV/TV"]
+[node name="Body_NinePatchRect" type="NinePatchRect" parent="TV/TVv"]
 margin_right = 140.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 140, 100 )
@@ -391,7 +402,7 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="TV/TV/Body_NinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="TV/TVv/Body_NinePatchRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -402,7 +413,7 @@ margin_right = 835.0
 margin_bottom = 553.0
 rect_scale = Vector2( 0.14, 0.14 )
 
-[node name="Body_Label" type="Label" parent="TV/TV/Body_NinePatchRect/MarginContainer"]
+[node name="Body_Label" type="Label" parent="TV/TVv/Body_NinePatchRect/MarginContainer"]
 margin_right = 900.0
 margin_bottom = 598.0
 size_flags_vertical = 3
@@ -414,12 +425,12 @@ clip_text = true
 uppercase = true
 percent_visible = 0.0
 
-[node name="Body_AnimationPlayer" type="AnimationPlayer" parent="TV/TV/Body_NinePatchRect/MarginContainer/Body_Label"]
+[node name="Body_AnimationPlayer" type="AnimationPlayer" parent="TV/TVv/Body_NinePatchRect/MarginContainer/Body_Label"]
 autoplay = "TextAnimated"
 anims/RESET = SubResource( 5 )
 anims/TextAnimated = SubResource( 6 )
 
-[node name="Speaker_NinePatchRect" type="NinePatchRect" parent="TV/TV"]
+[node name="Speaker_NinePatchRect" type="NinePatchRect" parent="TV/TVv"]
 anchor_left = 3.0
 anchor_top = 3.0
 anchor_right = 3.0
@@ -430,7 +441,7 @@ margin_right = 47.0
 margin_bottom = 109.0
 texture = ExtResource( 7 )
 
-[node name="Speaker_Label" type="Label" parent="TV/TV/Speaker_NinePatchRect"]
+[node name="Speaker_Label" type="Label" parent="TV/TVv/Speaker_NinePatchRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.51306
@@ -443,7 +454,7 @@ text = "Новости"
 align = 1
 valign = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TV/TV/Speaker_NinePatchRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TV/TVv/Speaker_NinePatchRect"]
 autoplay = "NewsSpeacer"
 anims/NewsSpeacer = SubResource( 7 )
 anims/RESET = SubResource( 8 )

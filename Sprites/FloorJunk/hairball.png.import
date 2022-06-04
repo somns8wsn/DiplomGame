@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hairball.png-1d62e778ebce75ed9a97193bfaa5ad8f.stex"
+path="res://.import/hairball.png-301d54c9c27911bca206d278d5ca9c12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Floor Junk/hairball.png"
-dest_files=[ "res://.import/hairball.png-1d62e778ebce75ed9a97193bfaa5ad8f.stex" ]
+source_file="res://Sprites/FloorJunk/hairball.png"
+dest_files=[ "res://.import/hairball.png-301d54c9c27911bca206d278d5ca9c12.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

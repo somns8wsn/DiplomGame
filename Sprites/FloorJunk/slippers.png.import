@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slippers.png-f4ba20819f448ac1483979d0588fd08c.stex"
+path="res://.import/slippers.png-9340e209bc8dcb643fff95d5e5512be1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Floor Junk/slippers.png"
-dest_files=[ "res://.import/slippers.png-f4ba20819f448ac1483979d0588fd08c.stex" ]
+source_file="res://Sprites/FloorJunk/slippers.png"
+dest_files=[ "res://.import/slippers.png-9340e209bc8dcb643fff95d5e5512be1.stex" ]
 
 [params]
 

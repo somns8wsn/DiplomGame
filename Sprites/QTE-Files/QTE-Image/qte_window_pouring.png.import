@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/QTE_Window_pouring.png-f84e10c8c846d526548cc345f094bf50.stex"
+path="res://.import/qte_window_pouring.png-ca39edfef05a2d2530a357a79ef0721a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/QTE_files/QTE_image/QTE_Window_pouring.png"
-dest_files=[ "res://.import/QTE_Window_pouring.png-f84e10c8c846d526548cc345f094bf50.stex" ]
+source_file="res://Sprites/QTE-Files/QTE-Image/qte_window_pouring.png"
+dest_files=[ "res://.import/qte_window_pouring.png-ca39edfef05a2d2530a357a79ef0721a.stex" ]
 
 [params]
 

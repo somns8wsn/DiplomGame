@@ -37,6 +37,7 @@ hframes = 6
 shape = SubResource( 1 )
 
 [node name="occluder" type="LightOccluder2D" parent="."]
+visible = false
 
 [node name="animation" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
@@ -52,4 +53,5 @@ limit_bottom = 1080
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 10.0
+
 [connection signal="run" from="." to="." method="_on_topdown_player_run"]

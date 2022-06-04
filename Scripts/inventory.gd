@@ -1,6 +1,6 @@
 extends Node2D
 
-const SlotClass = preload("res://Scripts/Slot.gd")
+const SlotClass = preload("res://Scripts/slot.gd")
 onready var inventory_slots = $GridContainer
 var holding_item = null
 
@@ -43,6 +43,6 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 				slot.pickFromSlot()
 				holding_item.global_position = get_global_mouse_position()
 
-func _input(event):
+func _input(_event):
 	if holding_item:
 		holding_item.global_position = get_global_mouse_position()

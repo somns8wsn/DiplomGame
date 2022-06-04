@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hotline_guy_test.png-3d9839a6e81e6fb213e7db51d0af4ec6.stex"
+path="res://.import/hotline_guy_test.png-46980b4087966f76405ade9bf9bcfa45.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/For Tests/hotline_guy_test.png"
-dest_files=[ "res://.import/hotline_guy_test.png-3d9839a6e81e6fb213e7db51d0af4ec6.stex" ]
+source_file="res://Sprites/ForTests/hotline_guy_test.png"
+dest_files=[ "res://.import/hotline_guy_test.png-46980b4087966f76405ade9bf9bcfa45.stex" ]
 
 [params]
 

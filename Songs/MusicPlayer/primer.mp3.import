@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/primer.mp3-ddb91ec7cbc666b878b3877c3264de9f.mp3str"
+path="res://.import/primer.mp3-941e7e915d0261915fd0dad8067874b5.mp3str"
 
 [deps]
 
-source_file="res://song/PlayerMusic/primer.mp3"
-dest_files=[ "res://.import/primer.mp3-ddb91ec7cbc666b878b3877c3264de9f.mp3str" ]
+source_file="res://Songs/MusicPlayer/primer.mp3"
+dest_files=[ "res://.import/primer.mp3-941e7e915d0261915fd0dad8067874b5.mp3str" ]
 
 [params]
 

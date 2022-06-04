@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Pockets/pocket.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/slot_default.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Slot.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/Inventory.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Slots/slot_default.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/slot.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/inventory.gd" type="Script" id=4]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )

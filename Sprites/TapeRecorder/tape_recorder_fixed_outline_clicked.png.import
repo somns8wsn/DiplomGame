@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tape_recorder_fixed_outline_clicked.png-abbe52c7042ef31670141d5867bbb299.stex"
+path="res://.import/tape_recorder_fixed_outline_clicked.png-228ef8d7b42373aa3c1bb5724d72afec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/taperecorder/tape_recorder_fixed_outline_clicked.png"
-dest_files=[ "res://.import/tape_recorder_fixed_outline_clicked.png-abbe52c7042ef31670141d5867bbb299.stex" ]
+source_file="res://Sprites/TapeRecorder/tape_recorder_fixed_outline_clicked.png"
+dest_files=[ "res://.import/tape_recorder_fixed_outline_clicked.png-228ef8d7b42373aa3c1bb5724d72afec.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tape_recorder_fixed_music_stop_button.png-63603bf5fcce6c319d7a824c7503ecd7.stex"
+path="res://.import/tape_recorder_fixed_music_stop_button.png-423d33f1196aa2bbcbad39e68d1d2a7b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/taperecorder/tape_recorder_fixed_music_stop_button.png"
-dest_files=[ "res://.import/tape_recorder_fixed_music_stop_button.png-63603bf5fcce6c319d7a824c7503ecd7.stex" ]
+source_file="res://Sprites/TapeRecorder/tape_recorder_fixed_music_stop_button.png"
+dest_files=[ "res://.import/tape_recorder_fixed_music_stop_button.png-423d33f1196aa2bbcbad39e68d1d2a7b.stex" ]
 
 [params]
 
