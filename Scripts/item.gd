@@ -1,18 +1,18 @@
 extends Node2D
 
-var item_name
-var item_quantity
+var item_name: String
+var item_quantity: int
 
 func _ready():
-	var rand_val = randi() & 3
+	var rand_val := randi() % 3
 	if rand_val == 0:
-		item_name = "Money"
+		item_name = "money"
 	elif rand_val == 1:
-		item_name = "Bread"
+		item_name = "bread"
 	else:
 		item_name = "trash_cigarette_box"
 
-	$TextureRect.texture = load("res://Sprites/item_files/" + item_name + ".png")
+	#$TextureRect.texture = load("res://Sprites/ItemsFiles/bread.png")
 	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
 	item_quantity = randi() % stack_size + 1
 

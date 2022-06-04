@@ -1,11 +1,11 @@
 extends Node2D
 
-onready var MplayerOsnovaPlay = load("res://Sprites/musicplayer/MplayerOsnovaPlay.png")
-onready var MplayerOsnovaPause = load("res://Sprites/musicplayer/MplayerOsnovaPause.png")
-onready var MplayerOsnovaRewindBack = load("res://Sprites/musicplayer/MplayerOsnovaRewindBack.png")
-onready var MplayerOsnovaRewindGo = load("res://Sprites/musicplayer/MplayerOsnovaRewindGo.png")
+onready var MplayerOsnovaPlay = load("res://Sprites/MusicPlayer/mplayer_osnova_play.png")
+onready var MplayerOsnovaPause = load("res://Sprites/MusicPlayer/mplayer_osnova_pause.png")
+onready var MplayerOsnovaRewindBack = load("res://Sprites/MusicPlayer/mplayer_osnova_rewind_back.png")
+onready var MplayerOsnovaRewindGo = load("res://Sprites/MusicPlayer/mplayer_osnova_rewind_go.png")
 
-onready var MusicForPlayer1 = load("res://song/PlayerMusic/MusicForPlayer1.mp3")
+onready var MusicForPlayer1 = load("res://Songs/MusicPlayer/music_for_player_1.mp3")
 var temp: float
 
 func _on_ClickPlay_pressed():

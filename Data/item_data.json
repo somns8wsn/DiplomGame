@@ -1,10 +1,10 @@
 {
-  "Money": {
+ "money": {
     "ItemCategory": "Resource",
     "StackSize": 99,
     "Description": "Coin, can be used in a coffee machine."
   },
-  "Bread": {
+  "bread": {
     "ItemCategory": "Consumable",
     "AddHealth": 5,
     "AddEnergy": 20,

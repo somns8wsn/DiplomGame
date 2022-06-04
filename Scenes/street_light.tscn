@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Infrastructure/Street Light/street_light_sample.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Environment/simple_light.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Light/radial_smooth_light.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/ForTests/blue.png" type="Texture" id=3]
 
 [sub_resource type="GDScript" id=1]

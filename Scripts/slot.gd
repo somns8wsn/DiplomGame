@@ -1,12 +1,12 @@
 extends Panel
 
-var default_tex = preload("res://Sprites/Slots/slot_default.png")
-var empty_tex = preload("res://Sprites/Slots/slot_empty.png")
+const default_tex = preload("res://Sprites/Slots/slot_default.png")
+const empty_tex = preload("res://Sprites/Slots/slot_empty.png")
 
 var default_style: StyleBoxTexture = null
 var empty_style: StyleBoxTexture = null
 
-var ItemClass = preload("res://Scenes/item.tscn")
+const ItemClass = preload("res://Scenes/item.tscn")
 var item = null
 
 func _ready():

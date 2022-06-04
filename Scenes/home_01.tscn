@@ -1,29 +1,36 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Sprites/Locations/home_background_01.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Locations/main_chars_home.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/home_01.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/topdown_player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/rubberized_black_disk.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/dumbbell.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/slippers.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Furniture/home_bed_01.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/FloorJunk/trash_cigarette_box.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Occluders/home_01_walls_occluder.tres" type="OccluderPolygon2D" id=8]
 [ext_resource path="res://Scenes/floor_junk.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/ForTests/light.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Environment/simple_light.png" type="Texture" id=11]
-[ext_resource path="res://Resources/Occluders/home_01_walls_occluder.tres" type="OccluderPolygon2D" id=12]
-[ext_resource path="res://Sprites/QTE-Files/QTE-Image/qte_window_pouring.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/QTE-Files/QTE-Image/qte_window.png" type="Texture" id=9]
 [ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Italic Nerd Font Complete Mono.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Nerd Font Complete Mono.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://Scenes/inventory.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scripts/ui_inventory.gd" type="Script" id=13]
-[ext_resource path="res://Scripts/ui_music_player.gd" type="Script" id=14]
-[ext_resource path="res://Scenes/music_player.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/tape_recorder.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scripts/ui_tape_recorder.gd" type="Script" id=17]
+[ext_resource path="res://Sprites/QTE-Files/QTE-Image/qte_window_pouring.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/QTE-Files/QTE-Image/qte_window.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/ui_inventory.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/ui_music_player.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/ui_tape_recorder.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/music_player.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/inventory.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/tape_recorder.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/Light/radial_smooth_light.png" type="Texture" id=20]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 201.429, 140.692 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 38.6724
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 57.3724, 53.4559 )
+
+[sub_resource type="DynamicFont" id=10]
 size = 100
 use_filter = true
 extra_spacing_top = -3
@@ -102,15 +109,14 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 526, 243.5 )
-
 [node name="home_01" type="Node2D"]
-position = Vector2( 0, 0.118896 )
 script = ExtResource( 2 )
+fade_distance = 1000
+min_opacity = 0.4
+zoomx = 0.3
+zoomy = 0.3
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 0, 2.1189 )
 z_index = -1000
 texture = ExtResource( 1 )
 centered = false
@@ -122,6 +128,7 @@ collision_layer = 2
 collision_mask = 65
 
 [node name="bed_form" type="CollisionShape2D" parent="bed"]
+shape = SubResource( 1 )
 
 [node name="bed_texture" type="Sprite" parent="bed"]
 texture = ExtResource( 7 )
@@ -131,20 +138,32 @@ position = Vector2( 1791.92, 624.631 )
 scale = Vector2( 4, 4 )
 z_index = 10
 
-[node name="Light2D2" type="Light2D" parent="topdown_player"]
+[node name="debug_light" type="Light2D" parent="topdown_player"]
 rotation = 1.5708
 scale = Vector2( 0.480902, 0.451713 )
-texture = ExtResource( 11 )
+texture = ExtResource( 20 )
 offset = Vector2( 0, -6.10352e-05 )
 color = Color( 0.84, 0.73612, 0.3948, 1 )
 energy = 0.81
-mode = 2
 shadow_enabled = true
 shadow_color = Color( 0.926539, 0.830882, 0.086863, 0 )
 shadow_buffer_size = 16384
 shadow_gradient_length = 0.8
 shadow_filter = 2
 shadow_filter_smooth = 24.6
+
+[node name="debug_camera" type="Camera2D" parent="topdown_player"]
+scale = Vector2( 0.25, 0.25 )
+current = true
+zoom = Vector2( 0.3, 0.3 )
+process_mode = 0
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 10.0
 
 [node name="dumbbell" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1083.41, 359.216 )
@@ -172,10 +191,6 @@ rotation = 1.06313
 z_index = 6
 collision_mask = 129
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 403.965, 532.798 )
-zoom = Vector2( 0.3, 0.3 )
-
 [node name="walls" type="StaticBody2D" parent="."]
 collision_layer = 512
 collision_mask = 641
@@ -186,11 +201,13 @@ position = Vector2( 0, 1 )
 polygon = PoolVector2Array( 1155, 892, 1155, 657, 1262, 657, 1262, 648, 1333, 648, 1333, 625, 1361, 625, 1361, 871, 1691, 871, 1691, 785, 1682, 785, 1682, 706, 1906, 707, 1906, 547, 1561, 547, 1561, 503, 1587, 503, 1587, 529, 1718, 529, 1718, 238, 1857, 238, 1857, 160, 1583, 160, 1583, 399, 1561, 399, 1561, 320, 1532, 320, 1561, 302, 1561, 162, 1507, 162, 1507, 232, 1486, 249, 1457, 249, 1440, 233, 1440, 185, 1393, 185, 1393, 302, 1422, 320, 1286, 320, 1286, 301, 1180, 301, 1180, 61, 478, 61, 478, 295, 392, 295, 392, 97, 376, 97, 376, 140, 183, 140, 183, 97, 171, 97, 171, 408, 642, 399, 642.054, 447.184, 1044, 447, 1155, 447, 1155, 434, 1311, 434, 1311, 447, 1361, 447, 1361, 503, 1156, 503, 1156, 568, 1062, 568, 1062, 597, 1044, 597, 1045, 689, 835, 690, 835, 597, 816, 597, 816, 573, 724, 573, 724, 492, 816, 492, 816, 470, 684, 470, 684, 582, 104, 582, 104, 813, 535, 813, 535, 985, 656, 985, 656, 777, 759, 777, 759, 761, 848, 761, 848, 892, 1155, 892, 1155, 1079, 0, 1079, 0, -1, 1920, -1, 1920, 1079, 1155, 1079 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="walls"]
+visible = false
 position = Vector2( -172.607, 84.012 )
-occluder = ExtResource( 12 )
+occluder = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
 position = Vector2( 1409.99, 711.318 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
 position = Vector2( 592.128, 646.206 )
@@ -200,7 +217,6 @@ shape = SubResource( 3 )
 position = Vector2( 119.249, 849.099 )
 rotation = -0.469494
 scale = Vector2( 0.252, 0.252 )
-texture = ExtResource( 8 )
 
 [node name="trash" type="Node2D" parent="."]
 
@@ -357,21 +373,8 @@ position = Vector2( 655.275, 592.759 )
 [node name="floor_junk51" parent="trash" instance=ExtResource( 9 )]
 position = Vector2( 680.023, 597.002 )
 
-[node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 319.653, 588.312 )
-rotation = 1.5708
-scale = Vector2( 0.431045, 0.404882 )
-texture = ExtResource( 10 )
-offset = Vector2( 435.844, 46.2241 )
-energy = 0.78
-shadow_enabled = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.113725, 0.0941176, 0.164706, 1 )
-visible = false
-position = Vector2( 348, 640 )
-scale = Vector2( 1.17071e-05, 0.000379418 )
-zoom = Vector2( 0.2, 0.2 )
 
 [node name="TV" type="Node" parent="."]
 
@@ -385,7 +388,7 @@ margin_bottom = 587.0
 margin_right = 140.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 140, 100 )
-texture = ExtResource( 9 )
+texture = ExtResource( 13 )
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
@@ -407,7 +410,7 @@ margin_right = 900.0
 margin_bottom = 598.0
 size_flags_vertical = 3
 custom_constants/line_spacing = 0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 10 )
 text = "Россиянам раскрыли новый способ телефонного мошенничества"
 autowrap = true
 clip_text = true
@@ -428,7 +431,7 @@ margin_left = -26.0
 margin_top = 89.0
 margin_right = 47.0
 margin_bottom = 109.0
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 
 [node name="Speaker_Label" type="Label" parent="TV/TV/Speaker_NinePatchRect"]
 anchor_right = 1.0
@@ -448,34 +451,24 @@ autoplay = "NewsSpeacer"
 anims/NewsSpeacer = SubResource( 7 )
 anims/RESET = SubResource( 8 )
 
-[node name="Area2D" type="Area2D" parent="TV"]
-visible = false
-position = Vector2( 289, 587 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TV/Area2D"]
-position = Vector2( 342, 128.5 )
-shape = SubResource( 9 )
-
-[node name="UInventory" type="CanvasLayer" parent="."]
-script = ExtResource( 13 )
-
-[node name="Inventory" parent="UInventory" instance=ExtResource( 12 )]
-visible = false
-position = Vector2( -18, 2 )
-
 [node name="UIMusicPlayer" type="CanvasLayer" parent="."]
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 
-[node name="MusicPlayer" parent="UIMusicPlayer" instance=ExtResource( 15 )]
+[node name="MusicPlayer" parent="UIMusicPlayer" instance=ExtResource( 17 )]
 visible = false
 position = Vector2( 1389, 704 )
 rotation = 0.0785398
 
-[node name="UITape_recorder" type="CanvasLayer" parent="."]
-script = ExtResource( 17 )
+[node name="UInventory" type="CanvasLayer" parent="."]
+script = ExtResource( 14 )
 
-[node name="TapeRecorder" parent="UITape_recorder" instance=ExtResource( 16 )]
+[node name="Inventory" parent="UInventory" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( -18, 2 )
+
+[node name="UITape_recorder" type="CanvasLayer" parent="."]
+script = ExtResource( 16 )
+
+[node name="TapeRecorder" parent="UITape_recorder" instance=ExtResource( 19 )]
 visible = false
 position = Vector2( 21, 631 )
-
-[connection signal="area_entered" from="TV/Area2D" to="." method="_on_Area2D_area_entered"]

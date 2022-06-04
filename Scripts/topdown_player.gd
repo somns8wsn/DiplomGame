@@ -106,8 +106,8 @@ func topdown_mouse_track(_delta: float) -> void: # player's texture always face-
 	var nodes = [$walk_sprite,$occluder,$collision]
 	#print(rad2deg(self.get_angle_to(vel)))
 	#$walk_sprite.rotation_degrees = rad2deg(get_angle_to(Vector2(100,200)))
-	for i in nodes:
-		i.rotation_degrees = 90 + radians_to_degrees
+#	for i in nodes:
+#		i.rotation_degrees = 90 + radians_to_degrees
 
 func animations():
 	if state == State.RUN:
@@ -129,6 +129,9 @@ func is_moving() -> bool:
 func _physics_process(_delta: float) -> void:
 		if is_moving():
 			emit_signal("run")
+
+
+
 		topdown_movement(_delta)
 		topdown_mouse_track(_delta)
 

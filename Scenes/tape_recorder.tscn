@@ -9,8 +9,8 @@
 [ext_resource path="res://Sprites/TapeRecorder/tape_recorder_fixed_music_back_button.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/TapeRecorder/tape_recorder_fixed_music_next_button.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/TapeRecorder/tape_recorder_fixed_music_next_button_clicked.png" type="Texture" id=9]
-[ext_resource path="res://Songs/MusicPlayer/music_by_Alexey_Sovest_inst.mp3" type="AudioStream" id=10]
-[ext_resource path="res://Songs/MusicPlayer/music_by_Alexey_Sdacha_inst.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Songs/MusicPlayer/music_by_Alexey_sovest_inst.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Songs/MusicPlayer/music_by_Alexey_sdacha_inst.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Sprites/TapeRecorder/tape_recorder_fixed_outline2.png" type="Texture" id=12]
 
 [node name="TapeRecorder" type="Node2D"]
