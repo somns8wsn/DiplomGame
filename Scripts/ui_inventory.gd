@@ -2,5 +2,5 @@ extends CanvasLayer
 
 
 func _input(event):
-	if event.is_action_pressed("Inventory"):
-		$Inventory.visible = !$Inventory.visible
+	if event.is_action_pressed("inventory"):
+		$inventory.visible = !$inventory.visible

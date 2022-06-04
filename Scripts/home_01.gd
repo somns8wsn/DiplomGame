@@ -9,7 +9,7 @@ export var zoomx: float = 1 # DEBUG CAMERA
 export var zoomy: float = 1 #     ZOOM
 
 var floor_junk := preload("res://Scenes/floor_junk.tscn")
-onready var TV = preload("res://Sprites/TV/tv.png")
+onready var TV = preload("res://Sprites/TV/QTE_Window.png")
 
 func _ready() -> void:
 	$slippers/Sprite.set_flip_h(true)
@@ -50,3 +50,8 @@ func _physics_process(_delta) -> void:
 							clamp(1 - ( ( (distance)/fade_distance) - offset ),
 							min_opacity,
 							max_opacity))
+
+	pass
+
+
+

@@ -9,7 +9,7 @@
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 100, 100 )
 
-[node name="Inventory" type="Node2D"]
+[node name="inventory" type="Node2D"]
 position = Vector2( -19, 1 )
 script = ExtResource( 4 )
 

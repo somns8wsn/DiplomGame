@@ -3,7 +3,7 @@ extends Node
 var item_data: Dictionary = LoadData("res://Data/item_data.json")
 
 func _ready():
-	pass#item_data = LoadData("res://Data/item_data.json")
+	item_data = LoadData("res://Data/item_data.json")
 
 func LoadData(file_path):
 	var json_data

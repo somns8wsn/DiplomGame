@@ -13,7 +13,7 @@
 [ext_resource path="res://Songs/MusicPlayer/music_by_Alexey_sdacha_inst.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Sprites/TapeRecorder/tape_recorder_fixed_outline2.png" type="Texture" id=12]
 
-[node name="TapeRecorder" type="Node2D"]
+[node name="tapeRecorder" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="TapeRecorderOsnova" type="TextureRect" parent="."]
@@ -66,9 +66,11 @@ texture_hover = ExtResource( 2 )
 
 [node name="AudioStreamPlayerSdachaInst" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = -11.0
 
 [node name="AudioStreamPlayerSovestInst" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+volume_db = -11.0
 
 [connection signal="pressed" from="TapeRecorderOsnova/ClickPlay" to="." method="_on_ClickPlay_pressed"]
 [connection signal="pressed" from="TapeRecorderOsnova/ClickPause" to="." method="_on_ClickPause_pressed"]

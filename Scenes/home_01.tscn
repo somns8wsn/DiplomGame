@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Sprites/Locations/main_chars_home.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/home_01.gd" type="Script" id=2]
@@ -10,9 +10,8 @@
 [ext_resource path="res://Resources/Occluders/home_01_walls_occluder.tres" type="OccluderPolygon2D" id=8]
 [ext_resource path="res://Scenes/floor_junk.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Italic Nerd Font Complete Mono.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Nerd Font Complete Mono.ttf" type="DynamicFontData" id=11]
-[ext_resource path="res://Sprites/QTE-Files/QTE-Image/qte_window_pouring.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/QTE-Files/QTE-Image/qte_window.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/TV/QTE_Window_transparent.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/TV/QTE_Window_pouring.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/ui_inventory.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/ui_music_player.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/ui_tape_recorder.gd" type="Script" id=16]
@@ -30,15 +29,29 @@ radius = 38.6724
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 57.3724, 53.4559 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 100
 use_filter = true
-extra_spacing_top = -3
-extra_spacing_char = 2
-extra_spacing_space = -50
-font_data = ExtResource( 11 )
+font_data = ExtResource( 10 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
+resource_name = "Newstext"
+length = 12.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.057, 0.173, 0.27, 0.437, 0.584, 0.676, 0.753, 0.816, 0.901, 1.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=11]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:percent_visible")
@@ -51,23 +64,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "TextAnimated"
-length = 7.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:percent_visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 6.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.152, 0.334, 0.436, 0.555, 0.755, 1.0, 1.0 ]
 }
 
 [sub_resource type="DynamicFont" id=4]
@@ -383,54 +379,58 @@ margin_left = 289.0
 margin_top = 587.0
 margin_right = 289.0
 margin_bottom = 587.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Body_NinePatchRect" type="NinePatchRect" parent="TV/TV"]
-margin_right = 140.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 140, 100 )
-texture = ExtResource( 13 )
+[node name="BodyNinePatchRect" type="NinePatchRect" parent="TV/TV"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -99.0
+margin_top = 1.0
+margin_right = 122.0
+margin_bottom = 114.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 11 )
 patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="TV/TV/Body_NinePatchRect"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -65.0
-margin_top = -45.0
-margin_right = 835.0
-margin_bottom = 553.0
-rect_scale = Vector2( 0.14, 0.14 )
+[node name="BodyMarginContainer" type="MarginContainer" parent="TV/TV/BodyNinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 1831.0
+margin_bottom = 821.0
+rect_min_size = Vector2( 100, 100 )
+rect_scale = Vector2( 0.1, 0.1 )
 
-[node name="Body_Label" type="Label" parent="TV/TV/Body_NinePatchRect/MarginContainer"]
-margin_right = 900.0
-margin_bottom = 598.0
+[node name="Newstext" type="Label" parent="TV/TV/BodyNinePatchRect/BodyMarginContainer"]
+margin_right = 2041.0
+margin_bottom = 936.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/line_spacing = 0
-custom_fonts/font = SubResource( 10 )
-text = "Россиянам раскрыли новый способ телефонного мошенничества"
+custom_fonts/font = SubResource( 9 )
+text = "Самая старая обувь в Норвегии возрастом 3000 лет была извлечена из тающего ледника Об этом сообщает \"Рамблер\". "
 autowrap = true
-clip_text = true
-uppercase = true
 percent_visible = 0.0
 
-[node name="Body_AnimationPlayer" type="AnimationPlayer" parent="TV/TV/Body_NinePatchRect/MarginContainer/Body_Label"]
-autoplay = "TextAnimated"
-anims/RESET = SubResource( 5 )
-anims/TextAnimated = SubResource( 6 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TV/TV/BodyNinePatchRect/BodyMarginContainer/Newstext"]
+autoplay = "Newstext"
+anims/Newstext = SubResource( 10 )
+anims/RESET = SubResource( 11 )
 
 [node name="Speaker_NinePatchRect" type="NinePatchRect" parent="TV/TV"]
 anchor_left = 3.0
 anchor_top = 3.0
 anchor_right = 3.0
 anchor_bottom = 3.0
-margin_left = -26.0
-margin_top = 89.0
-margin_right = 47.0
-margin_bottom = 109.0
+margin_left = -136.0
+margin_top = -14.0
+margin_right = -63.0
+margin_bottom = 6.0
 texture = ExtResource( 12 )
 
 [node name="Speaker_Label" type="Label" parent="TV/TV/Speaker_NinePatchRect"]
@@ -451,24 +451,21 @@ autoplay = "NewsSpeacer"
 anims/NewsSpeacer = SubResource( 7 )
 anims/RESET = SubResource( 8 )
 
-[node name="UIMusicPlayer" type="CanvasLayer" parent="."]
+[node name="uimusicplayer" type="CanvasLayer" parent="."]
 script = ExtResource( 15 )
 
-[node name="MusicPlayer" parent="UIMusicPlayer" instance=ExtResource( 17 )]
+[node name="music_player" parent="uimusicplayer" instance=ExtResource( 17 )]
 visible = false
-position = Vector2( 1389, 704 )
-rotation = 0.0785398
 
-[node name="UInventory" type="CanvasLayer" parent="."]
+[node name="uinventory" type="CanvasLayer" parent="."]
 script = ExtResource( 14 )
 
-[node name="Inventory" parent="UInventory" instance=ExtResource( 18 )]
+[node name="inventory" parent="uinventory" instance=ExtResource( 18 )]
 visible = false
-position = Vector2( -18, 2 )
 
-[node name="UITape_recorder" type="CanvasLayer" parent="."]
+[node name="uitape_recorder" type="CanvasLayer" parent="."]
 script = ExtResource( 16 )
 
-[node name="TapeRecorder" parent="UITape_recorder" instance=ExtResource( 19 )]
+[node name="tapeRecorder" parent="uitape_recorder" instance=ExtResource( 19 )]
 visible = false
 position = Vector2( 21, 631 )

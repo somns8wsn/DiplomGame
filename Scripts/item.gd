@@ -1,10 +1,10 @@
 extends Node2D
 
-var item_name: String
-var item_quantity: int
+var item_name
+var item_quantity
 
 func _ready():
-	var rand_val := randi() % 3
+	var rand_val = randi() & 3
 	if rand_val == 0:
 		item_name = "money"
 	elif rand_val == 1:
@@ -12,10 +12,10 @@ func _ready():
 	else:
 		item_name = "trash_cigarette_box"
 
-	#$TextureRect.texture = load("res://Sprites/ItemsFiles/bread.png")
+	$TextureRect.texture = load("res://Sprites/ItemFiles/" + item_name + ".png")
 	var stack_size = int(JsonData.item_data[item_name]["StackSize"])
 	item_quantity = randi() % stack_size + 1
-
+	
 	if stack_size == 1:
 		$Label.visible = false
 	else:
@@ -28,7 +28,6 @@ func add_item_quantity(amount_to_add):
 func decrease_item_quantity(amount_to_remove):
 	item_quantity -= amount_to_remove
 	$Label.text = String(item_quantity)
-
 
 #func _ready():
 #	if randi() % 2 == 0:
