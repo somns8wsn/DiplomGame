@@ -28,7 +28,7 @@ func _get_pos_difference():
 func sitting_check() -> void:
 		if is_player_near_chair == true and is_player_clicked_chair == true:
 			emit_signal("_on_player_sat")
-			
+
 func _process(_delta) -> void:
 	#_get_pos_difference()
 	sitting_check()

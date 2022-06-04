@@ -1,21 +1,33 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/ladder.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/ladder.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/ForTests/ladder.png" type="Texture" id=1]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1.96761, 20.5334 )
+[sub_resource type="GDScript" id=1]
+script/source = "extends StaticBody2D
+
+
+func _on_touch_grap_area_body_entered(body) -> void:
+	if body.name == \"grap_area\":
+		G.is_on_ladder = true
+
+func _on_touch_grap_area_body_exited(body) -> void:
+	if body.name == \"grap_area\":
+		G.is_on_ladder = false
+"
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1.96761, 20.5334 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2, 20.533 )
 
 [node name="ladder_tree" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 9
-script = ExtResource( 2 )
+script = SubResource( 1 )
 
 [node name="ladder_collider" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -25,6 +37,7 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="touch_ladder_collider" type="CollisionShape2D" parent="touch_area"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
 [connection signal="body_entered" from="touch_area" to="." method="_on_touch_grap_area_body_entered"]
 [connection signal="body_exited" from="touch_area" to="." method="_on_touch_grap_area_body_exited"]
