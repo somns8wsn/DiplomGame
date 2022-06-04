@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TV.png-eb651bb4d8a190fa93e9b08b0cf60040.stex"
+path="res://.import/tape_recorder_fixed_music_next_button_clicked.png-bf2953d35d56f432046d8cc7a9dd1867.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Furniture/TV.png"
-dest_files=[ "res://.import/TV.png-eb651bb4d8a190fa93e9b08b0cf60040.stex" ]
+source_file="res://Sprites/taperecorder/tape_recorder_fixed_music_next_button_clicked.png"
+dest_files=[ "res://.import/tape_recorder_fixed_music_next_button_clicked.png-bf2953d35d56f432046d8cc7a9dd1867.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

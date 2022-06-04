@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/music_by_Alexey_Sdacha_inst.mp3-d6b2c091358403ece82fb69f7374b4ba.mp3str"
+
+[deps]
+
+source_file="res://song/PlayerMusic/music_by_Alexey_Sdacha_inst.mp3"
+dest_files=[ "res://.import/music_by_Alexey_Sdacha_inst.mp3-d6b2c091358403ece82fb69f7374b4ba.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

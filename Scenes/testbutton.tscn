@@ -11,9 +11,11 @@ script/source = "extends TouchScreenButton
 
 func _on_TouchScreenButton_pressed():
 
+
 	print(\"11111\")
 
 func _physics_process(delta: float) -> void:
+
 
 
 
@@ -25,4 +27,5 @@ normal = ExtResource( 1 )
 shape = SubResource( 1 )
 passby_press = true
 script = SubResource( 2 )
+
 [connection signal="pressed" from="." to="." method="_on_TouchScreenButton_pressed"]

@@ -37,6 +37,8 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="touch_ladder_collider" type="CollisionShape2D" parent="touch_area"]
+
 shape = SubResource( 3 )
+
 [connection signal="body_entered" from="touch_area" to="." method="_on_touch_grap_area_body_entered"]
 [connection signal="body_exited" from="touch_area" to="." method="_on_touch_grap_area_body_exited"]

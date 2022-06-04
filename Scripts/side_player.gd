@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
+
 var mass := 1000.0 # how heavy a player is
 var vel := Vector2.ZERO # movement direction
 var state = State.IDLE # current player state
 
 const WALK_SPEED = 300
 const SPRINT_SPEED = WALK_SPEED*1.5
+
 
 enum State{ # all possible player states
 	IDLE,
@@ -18,6 +20,7 @@ enum State{ # all possible player states
 	CLIMBING,
 	TALKING,
 }
+
 
 class input: # player control check
 	static func right() -> bool:
@@ -130,6 +133,7 @@ func movement_limitations() -> void: # to except possible bugs
 	if input.left() and input.right():
 		vel.x = 0
 
+
 	if !input.just_right() and !input.just_left() and !input.left() and !input.right() and is_on_floor():
 		vel.x = 0
 
@@ -141,7 +145,9 @@ func _process(_delta: float) -> void:
 	and also because of the 100% symmetric shape.
 	"""
 
+
 	var face: Node = $idle_sprite/face
+
 	var grap_area: Node = $grap_area
 	var grap_collision: Node = $grap_collision
 	var ceiling_check: Node = $ceiling_check
@@ -178,6 +184,7 @@ func _process(_delta: float) -> void:
 			ceiling_check.rotation_degrees = -ceiling_check.rotation_degrees
 
 
+
 func _physics_process(delta: float) -> void:
 
 		vel.y += mass * delta + 25 # gravitation effect
@@ -191,5 +198,7 @@ func _physics_process(delta: float) -> void:
 		vel = move_and_slide(vel, Vector2.UP) # apply coordinate changes according
 											  # 	to move and clide function for frame
 
+
 func _on_wooden_chair_player_sat() -> void:
 	pass#print("work")
+

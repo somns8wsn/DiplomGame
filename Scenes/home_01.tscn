@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Sprites/Locations/home_background_01.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Locations/main_chars_home.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/home_01.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/topdown_player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/rubberized_black_disk.tscn" type="PackedScene" id=4]
@@ -21,6 +21,98 @@ radius = 38.6724
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 57.3724, 53.4559 )
+[ext_resource path="res://Sprites/QTE_files/QTE_image/QTE_Window_pouring.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/QTE_files/QTE_image/QTE_Window.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Italic Nerd Font Complete Mono.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Nerd Font Complete Mono.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Scenes/Inventory.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/UInventory.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/UIMusicPlayer.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/MusicPlayer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/TapeRecorder.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/UITape_recorder.gd" type="Script" id=17]
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+use_filter = true
+extra_spacing_top = -3
+extra_spacing_char = 2
+extra_spacing_space = -50
+font_data = ExtResource( 11 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "TextAnimated"
+length = 7.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.152, 0.334, 0.436, 0.555, 0.755, 1.0, 1.0 ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "NewsSpeacer"
+length = 2.0
+loop = true
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 526, 243.5 )
 
 [node name="home_01" type="Node2D"]
 position = Vector2( 0, 0.118896 )
@@ -287,3 +379,114 @@ shadow_enabled = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.113725, 0.0941176, 0.164706, 1 )
+visible = false
+position = Vector2( 348, 640 )
+scale = Vector2( 1.17071e-05, 0.000379418 )
+zoom = Vector2( 0.2, 0.2 )
+
+[node name="TV" type="Node" parent="."]
+
+[node name="TVv" type="Control" parent="TV"]
+margin_left = 289.0
+margin_top = 587.0
+margin_right = 289.0
+margin_bottom = 587.0
+
+[node name="Body_NinePatchRect" type="NinePatchRect" parent="TV/TVv"]
+margin_right = 140.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 140, 100 )
+texture = ExtResource( 9 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="TV/TVv/Body_NinePatchRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -65.0
+margin_top = -45.0
+margin_right = 835.0
+margin_bottom = 553.0
+rect_scale = Vector2( 0.14, 0.14 )
+
+[node name="Body_Label" type="Label" parent="TV/TVv/Body_NinePatchRect/MarginContainer"]
+margin_right = 900.0
+margin_bottom = 598.0
+size_flags_vertical = 3
+custom_constants/line_spacing = 0
+custom_fonts/font = SubResource( 3 )
+text = "Россиянам раскрыли новый способ телефонного мошенничества"
+autowrap = true
+clip_text = true
+uppercase = true
+percent_visible = 0.0
+
+[node name="Body_AnimationPlayer" type="AnimationPlayer" parent="TV/TVv/Body_NinePatchRect/MarginContainer/Body_Label"]
+autoplay = "TextAnimated"
+anims/RESET = SubResource( 5 )
+anims/TextAnimated = SubResource( 6 )
+
+[node name="Speaker_NinePatchRect" type="NinePatchRect" parent="TV/TVv"]
+anchor_left = 3.0
+anchor_top = 3.0
+anchor_right = 3.0
+anchor_bottom = 3.0
+margin_left = -26.0
+margin_top = 89.0
+margin_right = 47.0
+margin_bottom = 109.0
+texture = ExtResource( 7 )
+
+[node name="Speaker_Label" type="Label" parent="TV/TVv/Speaker_NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.51306
+margin_top = 0.918945
+margin_right = 358.513
+margin_bottom = 102.919
+rect_scale = Vector2( 0.145, 0.127 )
+custom_fonts/font = SubResource( 4 )
+text = "Новости"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TV/TVv/Speaker_NinePatchRect"]
+autoplay = "NewsSpeacer"
+anims/NewsSpeacer = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[node name="Area2D" type="Area2D" parent="TV"]
+visible = false
+position = Vector2( 289, 587 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TV/Area2D"]
+position = Vector2( 342, 128.5 )
+shape = SubResource( 9 )
+
+[node name="UInventory" type="CanvasLayer" parent="."]
+script = ExtResource( 13 )
+
+[node name="Inventory" parent="UInventory" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( -18, 2 )
+
+[node name="UIMusicPlayer" type="CanvasLayer" parent="."]
+script = ExtResource( 14 )
+
+[node name="MusicPlayer" parent="UIMusicPlayer" instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 1389, 704 )
+rotation = 0.0785398
+
+[node name="UITape_recorder" type="CanvasLayer" parent="."]
+script = ExtResource( 17 )
+
+[node name="TapeRecorder" parent="UITape_recorder" instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 21, 631 )
+
+[connection signal="area_entered" from="TV/Area2D" to="." method="_on_Area2D_area_entered"]

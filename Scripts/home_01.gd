@@ -1,6 +1,12 @@
 extends Node2D
 
-#var floor_junk := preload("res://Scenes/floor_junk.tscn")
+export var fade_distance = 1500
+export var max_opacity = 1
+export var min_opacity = 0.2
+export var offset = 0.3
+
+var floor_junk := preload("res://Scenes/floor_junk.tscn")
+onready var TV = load("TV")
 
 func _ready() -> void:
 	$slippers/Sprite.set_flip_h(true)
@@ -14,12 +20,20 @@ func _ready() -> void:
 #		junk.set_position(Vector2($Area2D.position.x + (randi() % 100 if randi() % 2 == 0 else -(randi() % 100)),
 #								  $Area2D.position.y + (randi() % 100 if randi() % 2 == 0 else -(randi() % 100))))
 #		junk.get_node("CollisionShape2D").set_scale(Vector2(1, 1))
-#	var i = 0
-#	while i == 0:
-#		var junk = floor_junk.instance()
-#		add_child(junk)
-#		junk.position.x = rand_range($Position2D1.position.x, $Position2D2.position.x)
-#		junk.position.y = rand_range($Position2D1.position.y, $Position2D3.position.y)
 
-func _physics_process(_delta: float) -> void:
+func _process(_delta) -> void:
+	pass
+
+func _physics_process(_delta) -> void:
+	var player_pos = $topdown_player.get_position()
+	var obj_pos = $TV/TV.get_position()
+	var distance = player_pos.distance_to(obj_pos)
+	$TV/TV.modulate = Color(1,1,1,
+							clamp(1 - ( ( (distance)/fade_distance) - offset ),
+							min_opacity,
+							max_opacity))
+	pass
+
+
+func _on_Area2D_area_entered(area):
 	pass

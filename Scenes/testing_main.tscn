@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Floor Junk/slippers.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/main_scene.gd" type="Script" id=2]
@@ -150,6 +150,9 @@ position = Vector2( 1920, 576 )
 position = Vector2( 985.335, 999.231 )
 scale = Vector2( 0.7, 0.7 )
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.556863, 0.552941, 0.552941, 1 )
 [node name="street_light" parent="." instance=ExtResource( 8 )]
 position = Vector2( 840, 793.148 )
 

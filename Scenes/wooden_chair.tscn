@@ -2,6 +2,7 @@
 
 [ext_resource path="res://Sprites/Furniture/wooden_chair.png" type="Texture" id=1]
 
+
 [sub_resource type="GDScript" id=1]
 script/source = "extends StaticBody2D
 
@@ -48,30 +49,39 @@ polygon = PoolVector2Array( -10.4726, -55.4986, 33.462, -55.4847, 34.5104, -54.4
 extents = Vector2( 34.4971, 55.4925 )
 
 [sub_resource type="RectangleShape2D" id=4]
+
 extents = Vector2( 70.3181, 69.2784 )
 
 [node name="wooden_chair" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 2
+
 script = SubResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 2 )
 
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
+
 
 [node name="near_chair_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="near_chair_area"]
+
 shape = SubResource( 4 )
+
+
 
 [node name="click_chair_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="click_chair_area"]
+
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="click_chair_area"]
 texture = ExtResource( 1 )
+
 [connection signal="body_entered" from="near_chair_area" to="." method="_is_near_chair_player_entered"]
 [connection signal="input_event" from="click_chair_area" to="." method="_on_chair_mouse_left_click_input_event"]

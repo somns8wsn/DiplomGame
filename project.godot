@@ -25,13 +25,14 @@ stretch=true
 [application]
 
 config/name="DiplomGame"
-run/main_scene="res://Scenes/testing_main.tscn"
+run/main_scene="res://Scenes/home_01.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 
 [autoload]
 
 G="*res://Scripts/global.gd"
+JsonData="*res://Scripts/JsonData.gd"
 
 [debug]
 
@@ -117,6 +118,21 @@ ui_sprint={
 ui_jump={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+Inventory={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777218,"unicode":0,"echo":false,"script":null)
+ ]
+}
+MusicPlayer={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777244,"unicode":0,"echo":false,"script":null)
+ ]
+}
+TapeRecorder={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777245,"unicode":0,"echo":false,"script":null)
  ]
 }
 quit_debug={
