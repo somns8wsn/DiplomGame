@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Sprites/Locations/main_chars_home.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/home_01.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Italic Nerd Font Complete Mono.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Sprites/TV/QTE_Window_transparent.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/TV/QTE_Window_pouring.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/gamemenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/ui_inventory.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/ui_music_player.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/ui_tape_recorder.gd" type="Script" id=16]
@@ -19,6 +20,7 @@
 [ext_resource path="res://Scenes/inventory.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/tape_recorder.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sprites/Light/radial_smooth_light.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/Menu/uigamenenu.gd" type="Script" id=21]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 201.429, 140.692 )
@@ -197,7 +199,6 @@ position = Vector2( 0, 1 )
 polygon = PoolVector2Array( 1155, 892, 1155, 657, 1262, 657, 1262, 648, 1333, 648, 1333, 625, 1361, 625, 1361, 871, 1691, 871, 1691, 785, 1682, 785, 1682, 706, 1906, 707, 1906, 547, 1561, 547, 1561, 503, 1587, 503, 1587, 529, 1718, 529, 1718, 238, 1857, 238, 1857, 160, 1583, 160, 1583, 399, 1561, 399, 1561, 320, 1532, 320, 1561, 302, 1561, 162, 1507, 162, 1507, 232, 1486, 249, 1457, 249, 1440, 233, 1440, 185, 1393, 185, 1393, 302, 1422, 320, 1286, 320, 1286, 301, 1180, 301, 1180, 61, 478, 61, 478, 295, 392, 295, 392, 97, 376, 97, 376, 140, 183, 140, 183, 97, 171, 97, 171, 408, 642, 399, 642.054, 447.184, 1044, 447, 1155, 447, 1155, 434, 1311, 434, 1311, 447, 1361, 447, 1361, 503, 1156, 503, 1156, 568, 1062, 568, 1062, 597, 1044, 597, 1045, 689, 835, 690, 835, 597, 816, 597, 816, 573, 724, 573, 724, 492, 816, 492, 816, 470, 684, 470, 684, 582, 104, 582, 104, 813, 535, 813, 535, 985, 656, 985, 656, 777, 759, 777, 759, 761, 848, 761, 848, 892, 1155, 892, 1155, 1079, 0, 1079, 0, -1, 1920, -1, 1920, 1079, 1155, 1079 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="walls"]
-visible = false
 position = Vector2( -172.607, 84.012 )
 occluder = ExtResource( 8 )
 
@@ -408,8 +409,8 @@ rect_min_size = Vector2( 100, 100 )
 rect_scale = Vector2( 0.1, 0.1 )
 
 [node name="Newstext" type="Label" parent="TV/TV/BodyNinePatchRect/BodyMarginContainer"]
-margin_right = 2041.0
-margin_bottom = 936.0
+margin_right = 2045.0
+margin_bottom = 928.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
@@ -469,3 +470,9 @@ script = ExtResource( 16 )
 [node name="tapeRecorder" parent="uitape_recorder" instance=ExtResource( 19 )]
 visible = false
 position = Vector2( 21, 631 )
+
+[node name="uigamemenu" type="CanvasLayer" parent="."]
+script = ExtResource( 21 )
+
+[node name="gamemenu" parent="uigamemenu" instance=ExtResource( 13 )]
+visible = false
