@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Fonts/Custom/cave_story.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/MenuFiles/menuv.0.2.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Menu/gamemenu.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=13]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "ContinueGame"
+length = 3.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.87451, 0.87451, 1 ), Color( 0.764706, 0.921569, 0.760784, 1 ), Color( 0.643137, 0.909804, 0.635294, 1 ), Color( 0.462745, 0.937255, 0.447059, 1 ), Color( 0.639216, 0.945098, 0.627451, 1 ), Color( 0.745098, 0.94902, 0.737255, 1 ), Color( 0.858824, 0.94902, 0.854902, 1 ), Color( 0.87451, 0.87451, 0.87451, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=23]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 30
+outline_size = 1
+outline_color = Color( 0.0470588, 0.0431373, 0.0470588, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "GameCreadBy"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.145, 0.322, 0.451, 0.564, 0.806, 1.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="gamemenu" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="GameFon" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 3 )
+
+[node name="ContinueGameLabel" type="Label" parent="GameFon"]
+anchor_right = 0.042
+margin_left = 184.0
+margin_top = 408.0
+margin_right = 409.36
+margin_bottom = 471.0
+custom_fonts/font = SubResource( 13 )
+text = "Continue"
+align = 1
+valign = 1
+
+[node name="ContinueGameButton" type="Button" parent="GameFon/ContinueGameLabel"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="AnimationContinueGame" type="AnimationPlayer" parent="GameFon/ContinueGameLabel"]
+autoplay = "ContinueGame"
+anims/ContinueGame = SubResource( 14 )
+anims/RESET = SubResource( 15 )
+
+[node name="NewGameLabel" type="Label" parent="GameFon"]
+self_modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
+margin_left = 168.0
+margin_top = 504.0
+margin_right = 504.0
+margin_bottom = 567.0
+custom_fonts/font = SubResource( 13 )
+text = "New Game"
+valign = 1
+
+[node name="NewGameButton" type="Button" parent="GameFon/NewGameLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="LoadGameLabel" type="Label" parent="GameFon"]
+self_modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
+margin_left = 152.0
+margin_top = 600.0
+margin_right = 520.0
+margin_bottom = 663.0
+custom_fonts/font = SubResource( 23 )
+text = "Load Game"
+valign = 1
+
+[node name="LoadGameButton" type="Button" parent="GameFon/LoadGameLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="QuitGameLabel" type="Label" parent="GameFon"]
+modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
+margin_left = 264.0
+margin_top = 688.0
+margin_right = 402.0
+margin_bottom = 751.0
+custom_fonts/font = SubResource( 13 )
+text = "Quit"
+valign = 1
+
+[node name="QuitGameButton" type="Button" parent="GameFon/QuitGameLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="textCreadByLabel" type="Label" parent="."]
+margin_left = 1656.0
+margin_top = 936.0
+margin_right = 1915.0
+margin_bottom = 1073.0
+custom_fonts/font = SubResource( 10 )
+text = "Game cread by:
+wsn
+Animagi
+Yulpan"
+align = 1
+valign = 1
+percent_visible = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="textCreadByLabel"]
+autoplay = "GameCreadBy"
+anims/GameCreadBy = SubResource( 11 )
+anims/RESET = SubResource( 12 )
+
+[connection signal="pressed" from="GameFon/ContinueGameLabel/ContinueGameButton" to="." method="_on_ContinueGameButton_pressed"]
+[connection signal="button_down" from="GameFon/NewGameLabel/NewGameButton" to="." method="_on_NewGameButton_button_down"]
+[connection signal="pressed" from="GameFon/LoadGameLabel/LoadGameButton" to="." method="_on_LoadGameButton_pressed"]
+[connection signal="button_down" from="GameFon/QuitGameLabel/QuitGameButton" to="." method="_on_QuitGameButton_button_down"]

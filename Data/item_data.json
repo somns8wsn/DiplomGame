@@ -1,5 +1,5 @@
 {
- "money": {
+ "hubbabubba": {
     "ItemCategory": "Resource",
     "StackSize": 99,
     "Description": "Coin, can be used in a coffee machine."
@@ -11,9 +11,9 @@
     "StackSize": 99,
     "Description": "Without water, it's going to be hard."
   },
-  "trash_cigarette_box": {
-    "ItemCategory": "trash",
+  "key": {
+    "ItemCategory": "key",
     "StackSize": 1,
-    "Description": "trash_cigarette_box"
+    "Description": "key"
   }
 }

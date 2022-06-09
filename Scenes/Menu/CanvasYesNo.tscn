@@ -1,0 +1,158 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Fonts/Custom/cave_story.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/MenuFiles/menu.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Menu/ControlYesNo.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=16]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "YesAnimationPlayer"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.239216, 0.239216, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=18]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "NoAnimationPlayer"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.0784314, 0.2, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="CanvasYesNo" type="CanvasLayer"]
+
+[node name="ControlYesNo" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="YesNoTextureRect" type="TextureRect" parent="ControlYesNo"]
+modulate = Color( 0.368627, 0.368627, 0.368627, 0.937255 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 2 )
+
+[node name="YesNoLabel" type="Label" parent="ControlYesNo"]
+margin_left = 664.0
+margin_top = 448.0
+margin_right = 1294.0
+margin_bottom = 511.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_fonts/font = SubResource( 16 )
+text = "Start a new game?"
+
+[node name="YesButton" type="Button" parent="ControlYesNo"]
+margin_left = 760.0
+margin_top = 512.0
+margin_right = 772.0
+margin_bottom = 532.0
+rect_scale = Vector2( 15.9485, 3.18318 )
+flat = true
+
+[node name="YesLabel" type="Label" parent="ControlYesNo/YesButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0097
+margin_top = 2.51321
+margin_right = 118.01
+margin_bottom = 45.5132
+rect_scale = Vector2( 0.0520349, 0.251784 )
+custom_fonts/font = SubResource( 17 )
+text = "Yes"
+align = 1
+valign = 1
+
+[node name="YesAnimationPlayer" type="AnimationPlayer" parent="ControlYesNo/YesButton/YesLabel"]
+autoplay = "YesAnimationPlayer"
+anims/RESET = SubResource( 19 )
+anims/YesAnimationPlayer = SubResource( 20 )
+
+[node name="NoButton" type="Button" parent="ControlYesNo"]
+margin_left = 960.0
+margin_top = 520.0
+margin_right = 972.0
+margin_bottom = 540.0
+rect_scale = Vector2( 10.4899, 2.80373 )
+flat = true
+
+[node name="NoLabel" type="Label" parent="ControlYesNo/NoButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 221.0
+margin_bottom = 59.0
+rect_scale = Vector2( 0.0523399, 0.252 )
+custom_fonts/font = SubResource( 18 )
+text = "No"
+align = 1
+valign = 1
+
+[node name="NoAnimationPlayer" type="AnimationPlayer" parent="ControlYesNo/NoButton/NoLabel"]
+autoplay = "NoAnimationPlayer"
+anims/NoAnimationPlayer = SubResource( 21 )
+anims/RESET = SubResource( 22 )
+
+[connection signal="button_down" from="ControlYesNo/YesButton" to="ControlYesNo" method="_on_YesButton_button_down"]
+[connection signal="button_down" from="ControlYesNo/NoButton" to="ControlYesNo" method="_on_NoButton_button_down"]

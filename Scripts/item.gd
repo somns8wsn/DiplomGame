@@ -6,11 +6,11 @@ var item_quantity
 func _ready():
 	var rand_val = randi() & 3
 	if rand_val == 0:
-		item_name = "money"
+		item_name = "hubbabubba"
 	elif rand_val == 1:
 		item_name = "bread"
 	else:
-		item_name = "trash_cigarette_box"
+		item_name = "key"
 
 	$TextureRect.texture = load("res://Sprites/ItemFiles/" + item_name + ".png")
 	var stack_size = int(JsonData.item_data[item_name]["StackSize"])

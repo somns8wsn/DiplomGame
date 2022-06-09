@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Sprites/Locations/main_chars_home.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/home_01.gd" type="Script" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://Fonts/JetBrainsMono/JetBrains Mono Bold Italic Nerd Font Complete Mono.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Sprites/TV/QTE_Window_transparent.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/TV/QTE_Window_pouring.png" type="Texture" id=12]
-[ext_resource path="res://Scenes/gamemenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Menu/gamemenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scripts/ui_inventory.gd" type="Script" id=14]
 [ext_resource path="res://Scripts/ui_music_player.gd" type="Script" id=15]
 [ext_resource path="res://Scripts/ui_tape_recorder.gd" type="Script" id=16]
@@ -20,10 +20,46 @@
 [ext_resource path="res://Scenes/inventory.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/tape_recorder.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sprites/Light/radial_smooth_light.png" type="Texture" id=20]
-[ext_resource path="res://Scripts/Menu/uigamenenu.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/Menu/uigamemenu.gd" type="Script" id=21]
+[ext_resource path="res://Sprites/TV/TW_LITE/tv0.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/TapeRecorder/volm1.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/TapeRecorder/volm3.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/TapeRecorder/vlom2.png" type="Texture" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 201.429, 140.692 )
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1083.41, 198 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "dumbbel"
+length = 16.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1083.41, 198 ), Vector2( 1083.41, 217 ), Vector2( 1083.41, 242 ), Vector2( 1083.41, 262 ), Vector2( 1083.41, 281 ), Vector2( 1083.41, 304 ), Vector2( 1083.41, 324 ), Vector2( 1083.41, 349 ), Vector2( 1083.41, 367 ) ]
+}
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 38.6724
@@ -107,6 +143,103 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "tvlite"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5 ),
+"transitions": PoolRealArray( 0, 0, 0, 0, 0, 0 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.960784, 0.0352941, 1 ), Color( 0.0117647, 0.207843, 0.415686, 1 ), Color( 0, 0.329412, 0.384314, 1 ), Color( 0.392157, 0.113725, 0.0156863, 1 ), Color( 0.572549, 0.580392, 0.545098, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 23 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "animatedrecorder"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 23 ), ExtResource( 25 ), ExtResource( 24 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 23 ), ExtResource( 25 ), ExtResource( 24 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "animatedrecorder"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 23 ), ExtResource( 25 ), ExtResource( 24 ) ]
+}
+
 [node name="home_01" type="Node2D"]
 script = ExtResource( 2 )
 fade_distance = 1000
@@ -152,6 +285,7 @@ shadow_filter_smooth = 24.6
 
 [node name="debug_camera" type="Camera2D" parent="topdown_player"]
 scale = Vector2( 0.25, 0.25 )
+rotating = true
 current = true
 zoom = Vector2( 0.3, 0.3 )
 process_mode = 0
@@ -164,10 +298,15 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 
 [node name="dumbbell" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1083.41, 359.216 )
-rotation = 1.69982
+position = Vector2( 1083.41, 198 )
+rotation = 1.56843
 z_index = 6
 mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dumbbell"]
+autoplay = "dumbbel"
+anims/RESET = SubResource( 12 )
+anims/dumbbel = SubResource( 13 )
 
 [node name="rubberized_black_disk" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1062.97, 424.006 )
@@ -472,7 +611,51 @@ visible = false
 position = Vector2( 21, 631 )
 
 [node name="uigamemenu" type="CanvasLayer" parent="."]
+pause_mode = 2
 script = ExtResource( 21 )
 
 [node name="gamemenu" parent="uigamemenu" instance=ExtResource( 13 )]
 visible = false
+
+[node name="animatedtv" type="TextureRect" parent="."]
+margin_left = 204.0
+margin_top = 558.0
+margin_right = 403.0
+margin_bottom = 571.0
+texture = ExtResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="animatedtv"]
+autoplay = "tvlite"
+anims/RESET = SubResource( 14 )
+anims/tvlite = SubResource( 15 )
+
+[node name="animatedvolm" type="TextureRect" parent="."]
+margin_left = 456.0
+margin_top = 199.0
+margin_right = 461.0
+margin_bottom = 210.0
+texture = ExtResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="animatedvolm"]
+autoplay = "animatedrecorder"
+anims/RESET = SubResource( 16 )
+anims/animatedrecorder = SubResource( 17 )
+
+[node name="animatedvolm2" type="TextureRect" parent="."]
+margin_left = 452.0
+margin_top = 230.0
+margin_right = 457.0
+margin_bottom = 241.0
+rect_rotation = 5.25435
+texture = ExtResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="animatedvolm2"]
+autoplay = "RESET"
+anims/RESET = SubResource( 18 )
+anims/animatedrecorder = SubResource( 19 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2( 1100, 272 )
+rotating = true
+zoom = Vector2( 0.2, 0.2 )
