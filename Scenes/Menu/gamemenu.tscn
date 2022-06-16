@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/Custom/cave_story.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/MenuFiles/menuv.0.2.png" type="Texture" id=3]
@@ -39,6 +39,10 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="DynamicFont" id=24]
+size = 100
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=23]
 size = 100
@@ -83,6 +87,7 @@ tracks/0/keys = {
 }
 
 [node name="gamemenu" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 6 )
 
 [node name="GameFon" type="TextureRect" parent="."]
@@ -92,10 +97,10 @@ texture = ExtResource( 3 )
 
 [node name="ContinueGameLabel" type="Label" parent="GameFon"]
 anchor_right = 0.042
-margin_left = 184.0
-margin_top = 408.0
-margin_right = 409.36
-margin_bottom = 471.0
+margin_left = 183.0
+margin_top = 352.0
+margin_right = 408.36
+margin_bottom = 415.0
 custom_fonts/font = SubResource( 13 )
 text = "Continue"
 align = 1
@@ -105,6 +110,7 @@ valign = 1
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 1.0
 flat = true
 
 [node name="AnimationContinueGame" type="AnimationPlayer" parent="GameFon/ContinueGameLabel"]
@@ -114,10 +120,10 @@ anims/RESET = SubResource( 15 )
 
 [node name="NewGameLabel" type="Label" parent="GameFon"]
 self_modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
-margin_left = 168.0
-margin_top = 504.0
-margin_right = 504.0
-margin_bottom = 567.0
+margin_left = 175.0
+margin_top = 439.0
+margin_right = 511.0
+margin_bottom = 502.0
 custom_fonts/font = SubResource( 13 )
 text = "New Game"
 valign = 1
@@ -125,29 +131,46 @@ valign = 1
 [node name="NewGameButton" type="Button" parent="GameFon/NewGameLabel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 1.0
 flat = true
 
-[node name="LoadGameLabel" type="Label" parent="GameFon"]
-self_modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
-margin_left = 152.0
-margin_top = 600.0
-margin_right = 520.0
-margin_bottom = 663.0
+[node name="SaveGameLabel" type="Label" parent="GameFon"]
+visible = false
+modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
+margin_left = 144.0
+margin_top = 504.0
+margin_right = 509.0
+margin_bottom = 567.0
+custom_fonts/font = SubResource( 24 )
+text = "Save Game"
+
+[node name="SaveGameButton" type="Button" parent="GameFon/SaveGameLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="Save&LoadGameLabel" type="Label" parent="GameFon"]
+modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
+margin_left = 229.0
+margin_top = 528.0
+margin_right = 445.0
+margin_bottom = 591.0
 custom_fonts/font = SubResource( 23 )
-text = "Load Game"
+text = "Saves"
+align = 1
 valign = 1
 
-[node name="LoadGameButton" type="Button" parent="GameFon/LoadGameLabel"]
+[node name="Save&LoadGameButton" type="Button" parent="GameFon/Save&LoadGameLabel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 flat = true
 
 [node name="QuitGameLabel" type="Label" parent="GameFon"]
 modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
-margin_left = 264.0
-margin_top = 688.0
-margin_right = 402.0
-margin_bottom = 751.0
+margin_left = 272.0
+margin_top = 624.0
+margin_right = 410.0
+margin_bottom = 687.0
 custom_fonts/font = SubResource( 13 )
 text = "Quit"
 valign = 1
@@ -178,5 +201,5 @@ anims/RESET = SubResource( 12 )
 
 [connection signal="pressed" from="GameFon/ContinueGameLabel/ContinueGameButton" to="." method="_on_ContinueGameButton_pressed"]
 [connection signal="button_down" from="GameFon/NewGameLabel/NewGameButton" to="." method="_on_NewGameButton_button_down"]
-[connection signal="pressed" from="GameFon/LoadGameLabel/LoadGameButton" to="." method="_on_LoadGameButton_pressed"]
+[connection signal="pressed" from="GameFon/Save&LoadGameLabel/Save&LoadGameButton" to="." method="_on_SaveLoadGameButton_pressed"]
 [connection signal="button_down" from="GameFon/QuitGameLabel/QuitGameButton" to="." method="_on_QuitGameButton_button_down"]

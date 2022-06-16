@@ -24,8 +24,8 @@ func _ready() -> void:
 #								  $Area2D.position.y + (randi() % 100 if randi() % 2 == 0 else -(randi() % 100))))
 #		junk.get_node("CollisionShape2D").set_scale(Vector2(1, 1))
 
-func _input(event: InputEvent) -> void:
-	camera_scroll()
+#func _input(event: InputEvent) -> void:
+#	camera_scroll()
 
 func camera_scroll():
 
@@ -52,6 +52,5 @@ func _physics_process(_delta) -> void:
 							max_opacity))
 
 	pass
-
 
 

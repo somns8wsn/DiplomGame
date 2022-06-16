@@ -80,22 +80,21 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="CanvasYesNo" type="CanvasLayer"]
+[node name="canvasYesNo" type="CanvasLayer"]
+pause_mode = 2
 
-[node name="ControlYesNo" type="Control" parent="."]
+[node name="controlYesNo" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
-[node name="YesNoTextureRect" type="TextureRect" parent="ControlYesNo"]
-modulate = Color( 0.368627, 0.368627, 0.368627, 0.937255 )
+[node name="YesNoTextureRect" type="TextureRect" parent="controlYesNo"]
+modulate = Color( 0.25, 0.25, 0.25, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1920.0
-margin_bottom = 1080.0
 texture = ExtResource( 2 )
 
-[node name="YesNoLabel" type="Label" parent="ControlYesNo"]
+[node name="YesNoLabel" type="Label" parent="controlYesNo"]
 margin_left = 664.0
 margin_top = 448.0
 margin_right = 1294.0
@@ -104,55 +103,49 @@ rect_scale = Vector2( 0.9, 0.9 )
 custom_fonts/font = SubResource( 16 )
 text = "Start a new game?"
 
-[node name="YesButton" type="Button" parent="ControlYesNo"]
-margin_left = 760.0
-margin_top = 512.0
-margin_right = 772.0
-margin_bottom = 532.0
-rect_scale = Vector2( 15.9485, 3.18318 )
-flat = true
+[node name="YesButton" type="Button" parent="controlYesNo"]
+margin_left = 784.0
+margin_top = 552.0
+margin_right = 912.0
+margin_bottom = 616.0
 
-[node name="YesLabel" type="Label" parent="ControlYesNo/YesButton"]
+[node name="YesLabel" type="Label" parent="controlYesNo/YesButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.0097
-margin_top = 2.51321
-margin_right = 118.01
-margin_bottom = 45.5132
-rect_scale = Vector2( 0.0520349, 0.251784 )
+margin_right = 55.0
+margin_bottom = 27.0
+rect_scale = Vector2( 0.7, 0.7 )
 custom_fonts/font = SubResource( 17 )
 text = "Yes"
 align = 1
 valign = 1
 
-[node name="YesAnimationPlayer" type="AnimationPlayer" parent="ControlYesNo/YesButton/YesLabel"]
+[node name="YesAnimationPlayer" type="AnimationPlayer" parent="controlYesNo/YesButton/YesLabel"]
 autoplay = "YesAnimationPlayer"
 anims/RESET = SubResource( 19 )
 anims/YesAnimationPlayer = SubResource( 20 )
 
-[node name="NoButton" type="Button" parent="ControlYesNo"]
-margin_left = 960.0
-margin_top = 520.0
-margin_right = 972.0
-margin_bottom = 540.0
-rect_scale = Vector2( 10.4899, 2.80373 )
-flat = true
+[node name="NoButton" type="Button" parent="controlYesNo"]
+margin_left = 976.0
+margin_top = 552.0
+margin_right = 1104.0
+margin_bottom = 616.0
 
-[node name="NoLabel" type="Label" parent="ControlYesNo/NoButton"]
+[node name="NoLabel" type="Label" parent="controlYesNo/NoButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 221.0
-margin_bottom = 59.0
-rect_scale = Vector2( 0.0523399, 0.252 )
+margin_right = 55.0
+margin_bottom = 27.0
+rect_scale = Vector2( 0.7, 0.7 )
 custom_fonts/font = SubResource( 18 )
 text = "No"
 align = 1
 valign = 1
 
-[node name="NoAnimationPlayer" type="AnimationPlayer" parent="ControlYesNo/NoButton/NoLabel"]
+[node name="NoAnimationPlayer" type="AnimationPlayer" parent="controlYesNo/NoButton/NoLabel"]
 autoplay = "NoAnimationPlayer"
 anims/NoAnimationPlayer = SubResource( 21 )
 anims/RESET = SubResource( 22 )
 
-[connection signal="button_down" from="ControlYesNo/YesButton" to="ControlYesNo" method="_on_YesButton_button_down"]
-[connection signal="button_down" from="ControlYesNo/NoButton" to="ControlYesNo" method="_on_NoButton_button_down"]
+[connection signal="button_down" from="controlYesNo/YesButton" to="controlYesNo" method="_on_YesButton_button_down"]
+[connection signal="button_down" from="controlYesNo/NoButton" to="controlYesNo" method="_on_NoButton_button_down"]

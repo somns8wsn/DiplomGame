@@ -14,6 +14,7 @@
 [ext_resource path="res://Sprites/TapeRecorder/tape_recorder_fixed_outline2.png" type="Texture" id=12]
 
 [node name="tapeRecorder" type="Node2D"]
+position = Vector2( 10, 0 )
 script = ExtResource( 3 )
 
 [node name="TapeRecorderOsnova" type="TextureRect" parent="."]
